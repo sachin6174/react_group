@@ -1,0 +1,27 @@
+
+//  CLASS  follow the pascal convention    A...B....
+
+/function follow camel-case convention     a....B...
+
+/object follow normal convation            a....b...
+/
+/shift+enter -->new line without running the code
+/ctrl+enter -->clear the console screen
+
+//console.(table)--->print the content in row and columwise pretty form
+//console.(asert)---->provides the error
+/console.(warning)---->provides a warning
+
+//PRIMITIVE DATA-TYPES
+...these are those data types which are automatic defined in the engines we don't have to make separate class for their defination
+...these are formed in stack
+
+//REFRENCE TYPES OF DATA ARE STORED IN HEAP
+
+..
+/typeof(a)  -->tell the data-type of a 
+
+/let a=String(1234 or any content)  ---->  this will conveert the content to String
+
+
+
