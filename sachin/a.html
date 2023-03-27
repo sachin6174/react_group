@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>sachin</h1>
+        <h1>sachin</h1>
+        <h1>sachin</h1>
+        <h1>sachin</h1>
+
+        <label for="input">Give a Number</label>
+        <input id ="num" name="input" type="number">
+        <button id ="btn">give 2x</button>
+
+        <script>
+            let h1=document.getElementsByTagName("h1")
+            // console.log(h1)
+            
+            
+        //    h1[0].addEventListener("click",()=>{
+        //         h1[0].innerHTML="chandan"
+        //     })
+
+
+            let body=document.getElementsByTagName("body")[0]
+
+            btn.addEventListener("click",()=>{
+            
+                let p=document.createElement("p");
+                p.innerHTML=2*Number(num.value)
+                body.appendChild(p);
+            })
+            
+
+            
+
+        </script>
+    </body>
+</html>
