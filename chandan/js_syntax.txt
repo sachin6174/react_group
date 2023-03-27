@@ -23,3 +23,5 @@
 /let a=String(1234 or any content)  ---->  this will conveert the content to String
 
 //pasrseInt(arg)   --> changes  arg into an intger form
+
+//changes
