@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+	<style>
+	
+	.dark-mode {
+		background-color: black;
+		color: white;
+	}
+	.light-mode {
+		background-color: white;
+		color: black;
+	}
+	</style>
+</head>
+<body>
+	
+
+	<p>
+	Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis voluptatum eius quaerat animi numquam, minima provident natus, nesciunt debitis harum aperiam porro placeat? Similique tempora, eos corrupti rerum corporis illum alias eaque harum nemo voluptate? Alias impedit nesciunt magni enim odio doloremque, possimus excepturi voluptate, maiores quae earum. Tenetur, quasi.
+	</p>
+
+	
+
+	<h3 id="darkmode">Dark Mode is OFF</h3>
+	<button onclick="darkMode()">Darkmode</button>
+	<button onclick="lightMode()">LightMode</button>
+	<script>
+	function darkMode() {
+		var element = document.body;
+		var content = document.getElementById("darkmode");
+		element.className = "dark-mode";
+		content.innerText = "Dark Mode Hai";
+	}
+	function lightMode() {
+		var element = document.body;
+		var content = document.getElementById("darkmode");
+		element.className = "light-mode";
+		content.innerText = "Light Mode hai";
+	}
+	</script>
+</body>
+</html>
