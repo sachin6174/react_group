@@ -11,7 +11,11 @@
 <body>
 
 
-    <textarea id="text-area"></textarea>
+    <textarea id="text-area" placeholder="enter the string"></textarea>
+    <div>
+        <input id="demo" placeholder="ans-will-be"/>
+    </div>
+    
 
     <p id="demo"></p>
 
@@ -25,7 +29,7 @@
         let string_to_search=document.getElementById('word').value;
         document.getElementById('demo').innerHTML=para;
         let position = para.search(string_to_search);
-        document.getElementById('demo').innerHTML=position;
+        document.getElementById('demo').value=position;
         }
         
 
