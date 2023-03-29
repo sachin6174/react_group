@@ -27,22 +27,33 @@
 
 	
 
-	<h3 id="darkmode">Dark Mode is OFF</h3>
-	<button onclick="darkMode()">Darkmode</button>
-	<button onclick="lightMode()">LightMode</button>
+	
+	<button id="btn1" onclick="darkMode()">lightmode</button>
+	<!-- <button onclick="lightMode()">LightMode</button> -->
 	<script>
 	function darkMode() {
 		var element = document.body;
 		var content = document.getElementById("darkmode");
-		element.className = "dark-mode";
+		let mode=document.getElementById('btn1').innerHTML;
+		if(mode==="lightmode"){
+			element.className = "dark-mode";
+			btn1.innerHTML="darkmode";
+			// document.getElementById("darkmode").innerHTML="DARK-MODE-HAI";
+		}
+		if(mode==="darkmode"){
+			element.className = "light-mode";
+			btn1.innerHTML="lightmode"
+			// document.getElementById("darkmode").innerHTML="LIGHT-MODE-HAI";
+		}
+		
 		content.innerText = "Dark Mode Hai";
 	}
-	function lightMode() {
-		var element = document.body;
-		var content = document.getElementById("darkmode");
-		element.className = "light-mode";
-		content.innerText = "Light Mode hai";
-	}
+	// function lightMode() {
+	// 	var element = document.body;
+	// 	var content = document.getElementById("darkmode");
+	// 	element.className = "light-mode";
+	// 	content.innerText = "Light Mode hai";
+	// }
 	</script>
 </body>
 </html>
