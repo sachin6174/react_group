@@ -5,8 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+   <style>
+    body{
+        background-color: violet;
+    }
+   </style>
 </head>
-<body>
+<body id="bodi">
     
     <div id="demo"></div>
     <script>
@@ -14,6 +19,7 @@
         setInterval(()=>{
             let date=new Date();
             let hrs=date.getHours();
+         
             if(hrs<12){
                 document.getElementById('demo').innerHTML=date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()+"am";
             }else{
@@ -21,6 +27,12 @@
                 document.getElementById('demo').innerHTML=date.getHours()-12+":"+date.getMinutes()+":"+date.getSeconds()+"pm";
 
             }
+            let element=document.getElementById('bodi');
+            let rand1=Math.floor(Math.random()*256);
+            let rand2=Math.floor(Math.random()*256);
+            let rand3=Math.floor(Math.random()*256);
+
+            document.body.style.background="rgb(" + rand1 + "," + rand2 + "," + rand3 + ")";
 
             
         },1000)
