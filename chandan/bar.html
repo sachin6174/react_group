@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* body{
+            background-color: black;
+        } */
+        .bar{
+            width: 40px;
+            height: 100px;
+            background-color: black;
+            display: inline-block;
+            padding: 2px;
+        }
+    </style>
+</head>
+<body>
+    
+    <span class="bar">  </span>
+
+  <span class="bar"></span>
+  <span class="bar"></span>
+  <span class="bar"></span>
+  <span class="bar"></span>
+
+  <script>
+
+    let heigh=[29,90,100,56,120]
+
+    let arr=document.getElementsByClassName('bar');
+    console.log(arr);
+    let l=arr.length;
+    console.log(l)
+    for(let i=0;i<l;i++){
+        arr[i].style.height=`${heigh[i]}px`
+        console.log(arr[i].style.height)
+
+    }
+  </script>
+</body>
+
+</html>
