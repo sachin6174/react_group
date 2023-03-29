@@ -1,39 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
 
-    <buttonn id="btn">click me to generate text</button>
+
+    <textarea id="text-area"></textarea>
 
     <p id="demo"></p>
-   
-    <button id="btn1">click me to search </button>
-    <p id="index"></p>
+
+    <input id="word" type="text" placeholder="enter-word-to-srch" />
+    <button id="btn" onclick=find()>click me to search</button>
+    
 
     <script>
-        let para="lorem50Diam kasd lorem takimata et ipsum amet elitr duo sed, kasd kasd rebum at labore, eos dolor sanctus eos dolor et diam dolor. Lorem duo sanctus et elitr et et labore clita voluptua, rebum sed et sed dolor accusam, ea."
-
-        let button=document.getElementById('btn');
-        button.addEventListener('click',()=>{
-            document.getElementById('demo').innerHTML=para;
+        function find(){
+            let para=document.getElementById('text-area').value;
+        let string_to_search=document.getElementById('word').value;
+        document.getElementById('demo').innerHTML=para;
+        let position = para.search(string_to_search);
+        document.getElementById('demo').innerHTML=position;
         }
-
-        )
-
-        let button1=document.getElementById('btn1');
-        button1.addEventListener('click',()=>{
-            
-            let index=para.search("amet");
-        document.getElementById('index').innerHTML=index;
-
-        })
         
-        
+
+
     </script>
 </body>
+
 </html>
