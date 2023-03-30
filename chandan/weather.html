@@ -9,8 +9,9 @@
 </head>
 
 <body>
-    <input id="citi" placeholder="enter-city" type="text" />
+    <input id="citi" placeholder="enter-city" value="delhi" type="text" />
     <button id="btn1">search</button>
+    <div id="result"></div>
     <p id="demo"></p>
 
     <script>
@@ -22,11 +23,17 @@
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&unit=metric&appid=841f8d1bd9510f89725f5741f32ee238`).then((res)=> res.json()).then((data)=>{
             // const myjson=JSON.stringify(data);
             // console.log(data[0]);
-            document.getElementById('demo').innerHTML=JSON.stringify(data);
+
+            // let myobject=JSON.parse(data)
+            // console.log(myobject);
+            document.getElementById('demo').innerHTML=`temp of ${city} is ${data.main.temp-273.15} &deg;C`;
+            // document.getElementById('result').innerHTML=
            
 
-            console.log(data)
-        }).catch((err)=>console.log(err))
+            console.log((data.main.temp-273.15))
+        }).catch((err)=>{
+            document.getElementById('demo').innerHTML="city not exist or network error";
+        })
         })
         
     </script>
