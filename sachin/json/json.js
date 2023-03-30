@@ -16,6 +16,7 @@ fetch("https://api.codingninjas.com/api/v3/courses").then((res)=>{
 }).catch(()=>{
     console.log("data not recieved")
 })
+
 // `https://api.openweathermap.org/data/2.5/weather?q=${city}&unit=metric&appid=841f8d1bd9510f89725f5741f32ee238`
 
 

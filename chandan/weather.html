@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>waether</title>
+</head>
+
+<body>
+    <input id="citi" placeholder="enter-city" type="text" />
+    <button id="btn1">search</button>
+    <p id="demo"></p>
+
+    <script>
+
+// `https://api.openweathermap.org/data/2.5/weather?q=${city}&unit=metric&appid=841f8d1bd9510f89725f5741f32ee238`
+        document.getElementById('btn1').addEventListener('click',()=>{
+
+            let city=document.getElementById('citi').value;
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&unit=metric&appid=841f8d1bd9510f89725f5741f32ee238`).then((res)=> res.json()).then((data)=>{
+            // const myjson=JSON.stringify(data);
+            // console.log(data[0]);
+            document.getElementById('demo').innerHTML=JSON.stringify(data);
+           
+
+            console.log(data)
+        }).catch((err)=>console.log(err))
+        })
+        
+    </script>
+</body>
+
+</html>

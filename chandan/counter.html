@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COUNTER</title>
+</head>
+<body>
+    <div id="count">0</div>
+    <button id="start" onclick="starts()">start</button>
+    <button id="decre" onclick="stop()">stop</button>
+    <script>
+       let i=0;
+        function starts(){
+             
+            setInterval(()=>{
+            document.getElementById('count').innerHTML=i;
+            i++;
+        },1000)
+        }
+
+        function stop(){
+            clearInterval(starts)
+            
+        }
+
+        
+
+
+        // let i=0;
+        // setInterval(()=>{
+        //     document.getElementById('count').innerHTML=i;
+        //     i++;
+        // },1000)
+    </script>
+</body>
+
+</html>
