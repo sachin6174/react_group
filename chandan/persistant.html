@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>topic/description</title>
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
-
 </head>
-
 <body>
     <div id="container" class="flex-col sm:flex sm:flex-row gap-3 bg-black text-white">
         <div id="topic" class="p-2">
@@ -24,7 +21,6 @@
             <input id="description-value"  class="border-solid border-2 rounded-xl text-black px-1" type="text"
                 placeholder="enter-description" />
         </div>
-
         <button id="add" class="bg-white text-black mt-8 w-20 h-6 rounded-xl">
             ADD
         </button>
@@ -37,7 +33,6 @@
     <div id="main" class="m-1 rounded-sm bg-black text-white p-2"></div>
 </body>
 <script>
-
     let btn = document.getElementById("add");
    
    
@@ -46,28 +41,27 @@
     btn.addEventListener("click", () => {
         let topic = document.getElementById("topic-value").value;
         let description = document.getElementById("description-value").value;
-
         
-
         if(topic && description){
             para.innerHTML += "topic is : " + topic + "<br/>";
             para.innerHTML += "description is : " + description + "<hr/><br/>";
+
+            localStorage.setItem(`topic_${cnt}`,topic);
+        localStorage.setItem(`description_${cnt}`,description);
             cnt++;
         }
 
-        localStorage.setItem(`topic_${cnt}`,topic);
-        localStorage.setItem(`description_${cnt}`,description);
+        
+
        
-        
+
         localStorage.setItem("cnt",cnt);
-        
+
         document.getElementById("topic-value").value="";
         document.getElementById("description-value").value="";
         // console.log(size);
         console.log(cnt);
-
     });
-
     if(localStorage.getItem("cnt")){
         cnt=localStorage.getItem("cnt");
         console.log(cnt);
@@ -77,17 +71,14 @@
             let description=localStorage.getItem(`description_${i}`);
             para.innerHTML += "topic is : " + topic + "<br/>";
             para.innerHTML += "description is : " + description + "<hr/><br/>";
-
         }
-
     }
     let delete_btn=document.getElementById('dele');
     delete_btn.addEventListener('click',()=>{
         localStorage.clear();
+        cnt=0;
         document.getElementById('main').innerHTML=null;
     })
-
    
 </script>
-
 </html>
