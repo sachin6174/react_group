@@ -11,27 +11,26 @@
 </head>
 
 <body>
-    <div id="container" class="flex-col md:flex md:flex-row gap-3 bg-black text-white">
+    <div id="container" class="flex-col sm:flex sm:flex-row gap-3 bg-black text-white">
         <div id="topic" class="p-2">
             TOPIC:
             <br />
-            <input id="topic-value" class="border-solid border-2 rounded-xl text-black px-1" type="text"
+            <input id="topic-value" value="c++" class="border-solid border-2 rounded-xl text-black px-1" type="text"
                 placeholder="enter-topic" />
         </div>
         <div id="description" class="p-2">
             DESCRIPTION:
             <br />
-            <input id="description-value" class="border-solid border-2 rounded-xl text-black px-1" type="text"
+            <input id="description-value" value="imp" class="border-solid border-2 rounded-xl text-black px-1" type="text"
                 placeholder="enter-description" />
         </div>
 
         <button id="add" class="bg-white text-black mt-8 w-20 h-6 rounded-xl">
             ADD
         </button>
-        <input id="search-topic" class="bg-white text-black mt-8 h-6 rounded-xl px-1" type="text"
-            placeholder="search-topic" />
-        <button id="search" class="bg-white text-black mt-8 w-20 h-6 rounded-xl">
-            SEARCH
+        
+        <button id="search" class="bg-white text-black mt-8 px-2 h-6 rounded-xl">
+            CLEAR-OLD-DATA
         </button>
         <a id="visit-this"></a>
     </div>
@@ -57,8 +56,8 @@
 
 
 
-          document.getElementById("topic-value").value = "";
-          document.getElementById("description-value").value = "";
+        //   document.getElementById("topic-value").value = "";
+        //   document.getElementById("description-value").value = "";
 
 
     });
