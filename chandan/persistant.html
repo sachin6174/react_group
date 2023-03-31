@@ -52,12 +52,13 @@
         if(topic && description){
             para.innerHTML += "topic is : " + topic + "<br/>";
             para.innerHTML += "description is : " + description + "<hr/><br/>";
+            cnt++;
         }
 
         localStorage.setItem(`topic_${cnt}`,topic);
         localStorage.setItem(`description_${cnt}`,description);
        
-        cnt++;
+        
         localStorage.setItem("cnt",cnt);
         
         document.getElementById("topic-value").value="";
