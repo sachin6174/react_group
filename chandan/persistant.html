@@ -15,13 +15,13 @@
         <div id="topic" class="p-2">
             TOPIC:
             <br />
-            <input id="topic-value" value="c++" class="border-solid border-2 rounded-xl text-black px-1" type="text"
+            <input id="topic-value"  class="border-solid border-2 rounded-xl text-black px-1" type="text"
                 placeholder="enter-topic" />
         </div>
         <div id="description" class="p-2">
             DESCRIPTION:
             <br />
-            <input id="description-value" value="imp" class="border-solid border-2 rounded-xl text-black px-1" type="text"
+            <input id="description-value"  class="border-solid border-2 rounded-xl text-black px-1" type="text"
                 placeholder="enter-description" />
         </div>
 
@@ -29,7 +29,7 @@
             ADD
         </button>
         
-        <button id="search" class="bg-white text-black mt-8 px-2 h-6 rounded-xl">
+        <button id="dele" class="bg-white text-black mt-8 px-2 h-6 rounded-xl">
             CLEAR-OLD-DATA
         </button>
         <a id="visit-this"></a>
@@ -39,52 +39,54 @@
 <script>
 
     let btn = document.getElementById("add");
-    let notes = [];
+   
+   
+    let cnt=0;
+    let para = document.getElementById("main");
     btn.addEventListener("click", () => {
         let topic = document.getElementById("topic-value").value;
         let description = document.getElementById("description-value").value;
 
-        let para = document.getElementById("main");
+        
 
-        notes.push({ topic: `${topic}`, description: `${description}` });
-
-        if (topic && description) {
+        if(topic && description){
             para.innerHTML += "topic is : " + topic + "<br/>";
             para.innerHTML += "description is : " + description + "<hr/><br/>";
         }
-        console.log(notes);
 
-
-
-        //   document.getElementById("topic-value").value = "";
-        //   document.getElementById("description-value").value = "";
-
+        localStorage.setItem(`topic_${cnt}`,topic);
+        localStorage.setItem(`description_${cnt}`,description);
+       
+        cnt++;
+        localStorage.setItem("cnt",cnt);
+        
+        document.getElementById("topic-value").value="";
+        document.getElementById("description-value").value="";
+        // console.log(size);
+        console.log(cnt);
 
     });
 
-    let srch = document.getElementById('search');
-    srch.addEventListener('click', () => {
-        let word_to_search = document.getElementById('search-topic').value;
-        let find=false;
-        for (let i = 0; i < notes.length; i++) {
-            for (let key in notes[i]) {
-                if (notes[i][key] === word_to_search) {
-                    console.log(word_to_search);
-                    alert('topic found')
-                   find=true;
-                    // window.open(`https://www.${word_to_search}.com`, "_blank");
-                    
-
-                }
-            }
+    if(localStorage.getItem("cnt")){
+        cnt=localStorage.getItem("cnt");
+        console.log(cnt);
+        
+        for(let i=0;i<cnt;i++){
+            let topic=localStorage.getItem(`topic_${i}`);
+            let description=localStorage.getItem(`description_${i}`);
+            para.innerHTML += "topic is : " + topic + "<br/>";
+            para.innerHTML += "description is : " + description + "<hr/><br/>";
 
         }
-        if(!find) alert("this topic doesn't exist");
 
-
-        document.getElementById('search-topic').value = "";
+    }
+    let delete_btn=document.getElementById('dele');
+    delete_btn.addEventListener('click',()=>{
+        localStorage.clear();
+        document.getElementById('main').innerHTML=null;
     })
 
+   
 </script>
 
 </html>
