@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="hh" ></input>
+    <button id="add">ADD</button>
+
+    <script>
+
+
+        let size=0;
+
+        // function adding(){
+        //     add.addEventListener("click", () => {
+        //         window.localStorage.setItem(`${size}_t`, hh.value)
+        //         let data = localStorage.getItem(`${size}_t`)
+        //         size++;
+        //         localStorage.setItem("size", size);
+        //     })
+            
+        // }
+
+        add.addEventListener("click", () => {
+            window.localStorage.setItem(`${size}_t`, hh.value.trim())
+            let data = localStorage.getItem(`${size}_t`)
+            size++;
+            localStorage.setItem("size", size);
+        })
+        if(localStorage.getItem("size")){
+            size= localStorage.getItem("size");
+            for(let i=0;i<size;i++){
+                console.log(localStorage.getItem(`${i}_t`)) // write code to append
+            }
+            console.log("size ",size)
+
+        }
+
+        /*
+            clear old data
+
+        */
+        
+
+        
+
+
+    </script>
+    
+</body>
+</html>
+
