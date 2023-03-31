@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>topic/description</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div id="container" class="flex-col md:flex md:flex-row gap-3 bg-black text-white">
+        <div id="topic" class="p-2">
+            TOPIC:
+            <br />
+            <input id="topic-value" class="border-solid border-2 rounded-xl text-black px-1" type="text"
+                placeholder="enter-topic" />
+        </div>
+        <div id="description" class="p-2">
+            DESCRIPTION:
+            <br />
+            <input id="description-value" class="border-solid border-2 rounded-xl text-black px-1" type="text"
+                placeholder="enter-description" />
+        </div>
+
+        <button id="add" class="bg-white text-black mt-8 w-20 h-6 rounded-xl">
+            ADD
+        </button>
+        <input id="search-topic" class="bg-white text-black mt-8 h-6 rounded-xl px-1" type="text"
+            placeholder="search-topic" />
+        <button id="search" class="bg-white text-black mt-8 w-20 h-6 rounded-xl">
+            SEARCH
+        </button>
+        <a id="visit-this"></a>
+    </div>
+    <div id="main" class="m-1 rounded-sm bg-black text-white p-2"></div>
+</body>
+<script>
+
+    let btn = document.getElementById("add");
+    let notes = [];
+    btn.addEventListener("click", () => {
+        let topic = document.getElementById("topic-value").value;
+        let description = document.getElementById("description-value").value;
+
+        let para = document.getElementById("main");
+
+        notes.push({ topic: `${topic}`, description: `${description}` });
+
+        if (topic && description) {
+            para.innerHTML += "topic is : " + topic + "<br/>";
+            para.innerHTML += "description is : " + description + "<hr/><br/>";
+        }
+        console.log(notes);
+
+
+
+        //   document.getElementById("topic-value").value = "";
+        //   document.getElementById("description-value").value = "";
+
+
+    });
+
+    let srch = document.getElementById('search');
+    srch.addEventListener('click', () => {
+        let word_to_search = document.getElementById('search-topic').value;
+        let find=false;
+        for (let i = 0; i < notes.length; i++) {
+            for (let key in notes[i]) {
+                if (notes[i][key] === word_to_search) {
+                    console.log(word_to_search);
+                   find=true;
+                    window.open(`https://www.${word_to_search}.com`, "_blank");
+                    
+
+                }
+            }
+
+        }
+        if(!find) alert("this topic doesn't exist");
+
+
+        document.getElementById('search-topic').value = "";
+    })
+
+</script>
+
+</html>

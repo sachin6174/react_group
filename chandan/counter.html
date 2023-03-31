@@ -10,18 +10,23 @@
     <div id="count">0</div>
     <button id="start" onclick="starts()">start</button>
     <button id="decre" onclick="stop()">stop</button>
+    <div id="detail"></div>
     <script>
        let i=0;
+       let stopper;
         function starts(){
              
-            setInterval(()=>{
+            stopper=setInterval(()=>{
             document.getElementById('count').innerHTML=i;
             i++;
         },1000)
+
+
         }
 
         function stop(){
-            clearInterval(starts)
+            clearInterval(stopper);
+            document.getElementById('detail').innerHTML=`timer stopped at ${i-1}`;
             
         }
 
