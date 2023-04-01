@@ -9,28 +9,28 @@
 </head>
 <body>
     <div id="container" class="flex-col sm:flex sm:flex-row gap-3 bg-black text-white">
-        <div id="topic" class="p-2 font-bold">
+        <div id="topic" class="p-2 font-bold font-serif">
             TOPIC:
             <br />
-            <input id="topic-value"  class="border-solid border-2 rounded-xl text-black px-1" type="text"
+            <input id="topic-value"  class="font-bold border-solid border-2 rounded-xl text-black px-1" type="text"
                 placeholder="enter-topic" />
         </div>
-        <div id="description" class="p-2 font-bold">
+        <div id="description" class="p-2 font-bold font-serif">
             DESCRIPTION:
             <br />
-            <input id="description-value"  class="border-solid border-2 rounded-xl text-black px-1" type="text"
+            <input id="description-value"  class="font-bold border-solid border-2 rounded-xl text-black px-1" type="text"
                 placeholder="enter-description" />
         </div>
-        <button id="add" class="bg-white font-bold text-black mt-8 w-20 h-6 rounded-xl">
+        <button id="add" class="bg-white font-bold font-serif text-black mt-8 w-20 h-6 rounded-xl">
             ADD
         </button>
         
-        <button id="dele" class="bg-white font-bold text-black mt-8 px-2 h-6 rounded-xl">
+        <button id="dele" class="bg-white font-bold font-serif text-black mt-8 px-2 h-6 rounded-xl">
             CLEAR-OLD-DATA
         </button>
         <a id="visit-this"></a>
     </div>
-    <div id="main" class="m-1 rounded-sm bg-black text-white p-2"></div>
+    <div id="main" class="m-1 rounded-sm bg-blue-400 text-black p-2 text-xl font-bold"></div>
 </body>
 <script>
     let btn = document.getElementById("add");
