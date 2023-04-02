@@ -1,110 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>topic/description</title>
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
 
     <style>
-        .del{
-            color: aliceblue;
-            background-color: black;
-            border: 2px white solid;
-        }
+      .del {
+        color: aliceblue;
+        background-color: black;
+        border: 2px white solid;
+      }
     </style>
-</head>
-<body>
-    <div id="container" class="flex-col md:flex md:flex-row gap-3 bg-black text-white">
-        <div id="topic" class="p-2 font-bold font-serif">
-            TOPIC:
-            <br />
-            <input id="topic-value"  class="font-bold border-solid border-2 rounded-xl text-black px-1" type="text"
-                placeholder="enter-topic" />
-        </div>
-        <div id="description" class="p-2 font-bold font-serif">
-            DESCRIPTION:
-            <br />
-            <input id="description-value"  class="font-bold border-solid border-2 rounded-xl text-black px-1" type="text"
-                placeholder="enter-description" />
-        </div>
-        <button id="add" class="bg-white font-bold font-serif text-black mt-8 w-20 h-6 rounded-xl">
-            ADD
-        </button>
-        
-        <button id="dele" class="bg-white font-bold font-serif text-black mt-8 px-2 h-6 rounded-xl">
-            CLEAR-OLD-DATA
-        </button>
-        <a id="visit-this"></a>
+  </head>
+  <body>
+    <div
+      id="container"
+      class="flex-col md:flex md:flex-row gap-3 bg-black text-white"
+    >
+      <div id="topic" class="p-2 font-bold font-serif">
+        TOPIC:
+        <br />
+        <input
+          id="topic-value"
+          class="font-bold border-solid border-2 rounded-xl text-black px-1"
+          type="text"
+          placeholder="enter-topic"
+        />
+      </div>
+      <div id="description" class="p-2 font-bold font-serif">
+        DESCRIPTION:
+        <br />
+        <input
+          id="description-value"
+          class="font-bold border-solid border-2 rounded-xl text-black px-1"
+          type="text"
+          placeholder="enter-description"
+        />
+      </div>
+      <button
+        id="add"
+        class="bg-white font-bold font-serif text-black mt-8 w-20 h-6 rounded-xl"
+      >
+        ADD
+      </button>
+
+      <button
+        id="dele"
+        class="bg-white font-bold font-serif text-black mt-8 px-2 h-6 rounded-xl"
+      >
+        CLEAR-OLD-DATA
+      </button>
+      <a id="visit-this"></a>
     </div>
-    <div id="main" class="m-1 rounded-sm bg-blue-400 text-black p-2 text-xl font-bold"></div>
-</body>
-<script>
+    <div
+      id="main"
+      class="m-1 rounded-sm bg-blue-400 text-black p-2 text-xl font-bold"
+    ></div>
+  </body>
+  <script>
     let btn = document.getElementById("add");
-   
-   
-    let cnt=0;
+
+    let cnt = 0;
     let para = document.getElementById("main");
     btn.addEventListener("click", () => {
-        let topic = document.getElementById("topic-value").value;
-        let description = document.getElementById("description-value").value;
-        
-        if(topic && description){
-            para.innerHTML += `<div id="${cnt}_div" >topic is :  ${topic} <br/> description is :  ${description}<br/> <button class="del" id="${cnt}_btn">Delete</button><div> <hr/>`;
-            localStorage.setItem(`topic_${cnt}`,topic);
-            localStorage.setItem(`description_${cnt}`,description);
-            cnt++;
-        } 
+      let topic = document.getElementById("topic-value").value;
+      let description = document.getElementById("description-value").value;
 
-        
+      if (topic && description) {
+        para.innerHTML += `<div id="${cnt}_div" >topic is :  ${topic} <br/> description is :  ${description}<br/> <button class="del" id="${cnt}_btn">Delete</button><div> <hr/>`;
+        localStorage.setItem(`topic_${cnt}`, topic);
+        localStorage.setItem(`description_${cnt}`, description);
+        cnt++;
+      }
 
-       
+      localStorage.setItem("cnt", cnt);
 
-        localStorage.setItem("cnt",cnt);
-
-        document.getElementById("topic-value").value="";
-        document.getElementById("description-value").value="";
-        // console.log(size);
-        console.log(cnt);
+      document.getElementById("topic-value").value = "";
+      document.getElementById("description-value").value = "";
+      // console.log(size);
+      console.log(cnt);
     });
-    if(localStorage.getItem("cnt")){
-        cnt=localStorage.getItem("cnt");
-        console.log(cnt);
-        
-        for(let i=0;i<cnt;i++){
-            let topic=localStorage.getItem(`topic_${i}`);
-            let description=localStorage.getItem(`description_${i}`);
-            para.innerHTML += `<div id="${i}_div" >topic is :  ${topic} <br/> description is :  ${description} <br/> <button class="del" id="${i}_btn">Delete</button><div><hr/>`
-        }
+    if (localStorage.getItem("cnt")) {
+      cnt = localStorage.getItem("cnt");
+      console.log(cnt);
+
+      for (let i = 0; i < cnt; i++) {
+        let topic = localStorage.getItem(`topic_${i}`);
+        let description = localStorage.getItem(`description_${i}`);
+        para.innerHTML += `<div id="${i}_div" >topic is :  ${topic} <br/> description is :  ${description} <br/> <button class="del" id="${i}_btn">Delete</button><div><hr/>`;
+      }
     }
-    let delete_btn=document.getElementById('dele');
-    delete_btn.addEventListener('click',()=>{
-        localStorage.clear();
-        cnt=0;
-        document.getElementById('main').innerHTML=null;
-    })
-   
+    let delete_btn = document.getElementById("dele");
+    delete_btn.addEventListener("click", () => {
+      localStorage.clear();
+      cnt = 0;
+      document.getElementById("main").innerHTML = null;
+    });
+
     // delete
-    let all_delete_buttons=document.getElementsByClassName("del");
-    console.log(all_delete_buttons)
-    let body=document.getElementsByTagName("body")[0]
+    let all_delete_buttons = document.getElementsByClassName("del");
+    console.log(all_delete_buttons);
+    let body = document.getElementsByTagName("body")[0];
     // for(let i=0;i<cnt;i++){
-        body.addEventListener("click",(e)=>{
-            console.log((e.target.id)[0])
-            if(e.target.id[2]=="d"){
-                return
-            }
-            let myid= e.target.id[0]+"_div"
-            let element_to_remove=document.getElementById (myid)
-            console.log(element_to_remove)
-            element_to_remove.remove()
-            localStorage.removeItem(myid);
-            cnt--;
-            localStorage.setItem("cnt",cnt);
-        })
+    body.addEventListener("click", (e) => {
+      console.log(e.target.id[0]);
+      if (e.target.id[2] == "d") {
+        return;
+      }
+      let myid = e.target.id[0] + "_div";
+      let element_to_remove = document.getElementById(myid);
+      console.log(element_to_remove);
+      element_to_remove.remove();
+      localStorage.removeItem(myid);
+      cnt--;
+      localStorage.setItem("cnt", cnt);
+    });
     // }
-
-
-</script>
+  </script>
 </html>
