@@ -1,0 +1,38 @@
+<!-- https://google.com/search?q=tuda -->
+<!-- https://www.google.co.in/search?q=lata+sinha -->
+<!-- https://www.google.com/search?tbm=isch&q=rachna+ranade -->
+<!-- + represent space -->
+<!DOCTYPE html>
+<html lang="en" id="html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id ="body">
+    <h1>Write:</h1>
+    <br>
+    <input type="text" id="search">
+    <button id="btn">search</button>
+    <script >
+        // fetch("https://google.com/search?q=tuda").then((response)=>{
+        //         console.log(response)
+        // })
+            btn.addEventListener("click",()=>{
+                // window.location=`https://google.com/search?`
+                fetch(`https://cors-anywhere.herokuapp.com/https://www.google.com/search?q=${search.value}`)
+                    .then(response => response.text())
+                    .then(data => {
+                        console.log(data);
+                        body.innerHTML+=data
+
+                    })
+                    .catch(error => console.error(error));
+            })
+
+            
+
+    </script>
+</body>
+</html>
