@@ -181,13 +181,7 @@
             }else if(localStorage.getItem(username) !== password){
                 alert("please enter correct password");
             }else{
-              // alert("signin successfully!!");
-              let to_remove=document.getElementById("to_hide")
-              to_remove.remove()
-              let show=document.getElementById("to_show")
-              show.style.visibility= "visible";
-              
-
+              alert("signed-up successfully!!");
             }
             document.getElementById('login_username').value="";
             document.getElementById('login_password').value="";
