@@ -1,1 +1,2 @@
 //hello we will learn react
+ git config pull.rebase true
