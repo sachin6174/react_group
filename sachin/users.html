@@ -1,0 +1,39 @@
+
+<script>
+    class User{
+
+        constructor(user_name,password){
+            this.user_name=user_name
+            this.password=password
+            this.topic=[];
+            this.description=[];
+        }
+        
+        
+    };
+
+    let u="chandan"
+    let p="c"
+    let user1=new User(u,p);
+
+    user1.topic.push("sdf")
+    user1.description.push("sfdsgsdfgdfg")
+    user1.topic.push("sdftdrghfh")
+    user1.description.push("sfdsgsdfgdfgdfghdg")
+    user1.topic.push("sdftdrghfhsdfgdfg")
+    user1.description.push("sfdsgsdfgdfgdfgsdgsdfgsdfgsdfghdg")
+    console.log(user1)
+
+    localStorage.setItem(`${u}`,JSON.stringify(user1))
+    console.log(localStorage.getItem(`${u}`))
+
+    let current= JSON.parse(localStorage.getItem(`${u}`))
+    console.log(current)
+
+    arr=["sdfg","fgdsf","dfsgdf"]
+    localStorage.setItem(`myarr`, JSON.stringify(arr))
+    let data= JSON.parse(localStorage.getItem(`myarr`))
+    console.log(data)
+
+
+</script>

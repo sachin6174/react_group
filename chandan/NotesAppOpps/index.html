@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login-page</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+    <style>
+        .del {
+            color: aliceblue;
+            background-color: black;
+            border: 2px white solid;
+        }
+
+        #to_show {
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body id="parent">
+    <!-- sign up and sign in -->
+    <div id="to_hide" class="flex flex-col items-center justify-center">
+        <div id="login" class="bg-blue-700 text-white mt-10 w-56 text-center font-bold rounded-lg items-center">
+            <label for="login_username" class="font-bold font-serif">LOGIN</label>
+            <form action="" id="form" class="">
+                <input type="text" id="login_username" placeholder="username" class="mt-2 px-2 rounded-xl text-black" />
+                <input type="text" id="login_password" placeholder="password" class="mt-2 px-2 rounded-xl text-black" />
+            </form>
+            <button id="login_btn" class="bg-black px-3 m-8 rounded-xl font-bold font-serif">
+                login
+            </button>
+        </div>
+
+        <div id="sign-up" class="bg-blue-700 text-white mt-10 w-56 text-center font-bold rounded-lg">
+            <label for="sign-up_username" class="font-bold font-serif uppercase">sign-up</label>
+            <form action="" id="form" class="">
+                <input type="text" id="sign-up_username" placeholder="username"
+                    class="mt-2 px-2 rounded-xl text-black" />
+                <input type="text" id="sign-up_password" placeholder="password"
+                    class="mt-2 px-2 rounded-xl text-black" />
+            </form>
+            <button id="signup_btn" class="bg-black px-3 m-8 rounded-xl font-bold font-serif">
+                sign-up
+            </button>
+        </div>
+    </div>
+
+
+    <!-- notes display -->
+    <div  id="to_show">
+            <div id="container" class="flex-col md:flex md:flex-row gap-3 bg-black text-white">
+        <div id="topic" class="p-2 font-bold font-serif">
+            TOPIC:
+            <br />
+            <input id="topic-value" class="font-bold border-solid border-2 rounded-xl text-black px-1" type="text"
+                placeholder="enter-topic" />
+        </div>
+        <div id="description" class="p-2 font-bold font-serif">
+            DESCRIPTION:
+            <br />
+            <input id="description-value" class="font-bold border-solid border-2 rounded-xl text-black px-1" type="text"
+                placeholder="enter-description" />
+        </div>
+        <button id="add" class="bg-white font-bold font-serif text-black mt-8 w-20 h-6 rounded-xl">
+            ADD
+        </button>
+    
+        <button id="dele" class="bg-white font-bold font-serif text-black mt-8 px-2 h-6 rounded-xl">
+            CLEAR-OLD-DATA
+        </button>
+        <a id="visit-this"></a>
+    </div>
+    <div id="main" class="m-1 rounded-sm bg-blue-400 text-black p-2 text-xl font-bold"></div>
+    </div>
+
+
+    <script>
+        // class
+        class User {
+
+                constructor(user_name, password) {
+                    this.user_name = user_name
+                    this.password = password
+                    this.topic = [];
+                    this.description = [];
+                }
+
+
+        };
+
+        // login btn
+        let current_user_name="";
+        let login_button = document.getElementById('login_btn');
+        login_button.addEventListener('click', () => {
+            let username = document.getElementById('login_username').value;
+            let password = document.getElementById('login_password').value;
+            if(JSON.parse(localStorage.getItem(`${username}`))){
+                let current_user= JSON.parse(localStorage.getItem(`${username}`))
+                if (current_user.user_name===username && current_user.password === password) {
+                    console.log(current_user)
+                    document.getElementById("to_hide").remove();
+                    document.getElementById("to_show").style.visibility="visible"
+                    // alert("signed in sucessfully");
+                    current_user_name=username
+
+                } else {
+                    alert("password wrong")
+                }
+            }else{
+                alert("not a user signup");
+            }
+            document.getElementById('login_username').value = "";
+            document.getElementById('login_password').value = "";
+
+
+        })
+
+        //signup btn
+        let signup_btn = document.getElementById('signup_btn')
+        signup_btn.addEventListener('click', () => {
+            let username = document.getElementById('sign-up_username').value;
+            let password = document.getElementById('sign-up_password').value;
+
+            if (username && password) {
+                if (localStorage.getItem(username) === null) {
+                    let user1 = new User(username, password);
+                    localStorage.setItem(`${username}`, JSON.stringify(user1))
+                   alert('signed-up successfuly');
+
+                } else if (localStorage.getItem(username) !== null) {
+                    alert('this username already exits')
+                }
+            }
+            document.getElementById('sign-up_username').value = "";
+            document.getElementById('sign-up_password').value = "";
+
+        })
+
+
+        // add new 
+        let btn = document.getElementById("add");
+        let para = document.getElementById("main");
+        let cnt = 0;
+      btn.addEventListener("click", () => {
+            let topic = document.getElementById("topic-value").value;
+            let description = document.getElementById("description-value").value;
+            let current_user = JSON.parse(localStorage.getItem(`${current_user_name}`))
+            if (topic && description) {
+                para.innerHTML += `<div id="${cnt}_div" >topic is :  ${topic} <br/> description is :  ${description}<br/> <button class="del" id="${cnt}_btn">Delete</button><div> <hr/>`;
+                current_user.topic.push (topic)  
+                current_user.description.push (description)  
+                cnt++;
+            }
+
+            localStorage.setItem("cnt", cnt);
+
+            document.getElementById("topic-value").value = "";
+            document.getElementById("description-value").value = "";
+            // console.log(size);
+            console.log(cnt);
+        });
+
+        // populating older
+            if (localStorage.getItem("cnt")) {
+                cnt = localStorage.getItem("cnt");
+                console.log(cnt);
+
+                for (let i = 0; i < cnt; i++) {
+                    let topic = localStorage.getItem(`topic_${i}`);
+                    let description = localStorage.getItem(`description_${i}`);
+                    para.innerHTML += `<div id="${i}_div" >topic is :  ${topic} <br/> description is :  ${description} <br/> <button class="del" id="${i}_btn">Delete</button><div><hr/>`;
+                }
+            }
+
+            //clear btn
+            let delete_btn = document.getElementById("dele");
+            delete_btn.addEventListener("click", () => {
+                localStorage.clear();
+                cnt = 0;
+                document.getElementById("main").innerHTML = null;
+            });
+
+            // delete
+            let all_delete_buttons = document.getElementsByClassName("del");
+            console.log(all_delete_buttons);
+            let body = document.getElementsByTagName("body")[0];
+            // for(let i=0;i<cnt;i++){
+            body.addEventListener("click", (e) => {
+                console.log(e.target.id[0]);
+                if (e.target.id[2] == "d") {
+                    return;
+                }
+                let myid = e.target.id[0] + "_div";
+                let element_to_remove = document.getElementById(myid);
+                console.log(element_to_remove);
+                element_to_remove.remove();
+                localStorage.removeItem(myid);
+                cnt--;
+                localStorage.setItem("cnt", cnt);
+            });
+
+    </script>
+    </body>
+    
+    </html>

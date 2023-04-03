@@ -64,6 +64,9 @@
     ></div>
     
     <script>
+
+
+      //new addition
     let btn = document.getElementById("add");
 
     let cnt = 0;
@@ -86,6 +89,8 @@
       // console.log(size);
       console.log(cnt);
     });
+
+    // populating older
     if (localStorage.getItem("cnt")) {
       cnt = localStorage.getItem("cnt");
       console.log(cnt);
@@ -96,6 +101,8 @@
         para.innerHTML += `<div id="${i}_div" >topic is :  ${topic} <br/> description is :  ${description} <br/> <button class="del" id="${i}_btn">Delete</button><div><hr/>`;
       }
     }
+
+    //clear btn
     let delete_btn = document.getElementById("dele");
     delete_btn.addEventListener("click", () => {
       localStorage.clear();
