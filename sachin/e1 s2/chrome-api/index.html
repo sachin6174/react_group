@@ -21,7 +21,8 @@
         // })
             btn.addEventListener("click",()=>{
                 // window.location=`https://google.com/search?`
-                fetch(`https://cors-anywhere.herokuapp.com/https://www.google.com/search?q=${search.value}`)
+                // https://cors-anywhere.herokuapp.com/
+                fetch(`https://www.google.com/search?q=${search.value}`)
                     .then(response => response.text())
                     .then(data => {
                         console.log(data);
