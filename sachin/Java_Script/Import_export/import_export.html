@@ -1,0 +1,91 @@
+<script>
+
+//     In JavaScript, there are several ways to import and export modules.Here are some of the most commonly used methods:
+
+//         CommonJS:
+// CommonJS is a module system used by Node.js.It uses the require() function to import modules and the module.exports object to export modules.Here's an example:
+
+//         javascript
+// Copy code
+// In math.js
+function sum(a, b) {
+    return a + b;
+}
+module.exports = {
+    sum
+}
+// In main.js
+const math = require('./math');
+console.log(math.sum(1, 2)); // Output: 3
+
+
+
+
+
+// ES6 Modules:
+// ES6 modules are a newer module system that is supported by modern browsers and Node.js.They use the import and export keywords to import and export modules.Here's an example:
+
+//         javascript
+// Copy code
+        // In math.js
+export function sum(a, b) {
+    return a + b;
+}
+// In main.js
+import { sum } from './math';
+console.log(sum(1, 2)); // Output: 3
+
+
+
+
+
+//         AMD:
+// Asynchronous Module Definition(AMD) is a module system used for client - side JavaScript.It uses the define() function to define modules and the require() function to import modules.Here's an example:
+
+//         javascript
+// Copy code
+        // In math.js
+    define(function () {
+        function sum(a, b) {
+            return a + b;
+        }
+        return {
+            sum
+        };
+    });
+    // In main.js
+    require(['./math'], function (math) {
+        console.log(math.sum(1, 2)); // Output: 3
+    });
+
+
+
+//         UMD:
+// Universal Module Definition(UMD) is a module system that supports multiple module systems.It uses a combination of CommonJS, AMD, and global exports to work in any environment.Here's an example:
+
+//         javascript
+// Copy code
+     (function (root, factory) {
+         if (typeof define === 'function' && define.amd) {
+             define(['exports'], factory);
+         } else if (typeof exports === 'object' && typeof exports.nodeName !== 'string') {
+             factory(exports);
+         } else {
+             factory((root.myModule = {}));
+         }
+     }(this, function (exports) {
+         function sum(a, b) {
+             return a + b;
+         }
+
+         exports.sum = sum;
+     }));
+
+ // In main.js
+ if (typeof myModule === 'undefined') {
+     var myModule = {};
+ }
+
+        console.log(myModule.sum(1, 2)); // Output: 3
+//These are some of the most commonly used ways to import and export modules in JavaScript.The choice of module system depends on the specific use case and the environment in which the code will be run.
+</script>
