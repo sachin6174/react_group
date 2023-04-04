@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    
+    <script>
+
+        class User{
+            constructor(username,password){
+                this.username="chandan";
+                this.password="password";
+                this.topic=["hello"];
+                this.descreption=["world"]
+            }
+        }
+
+        let user=new User("sachin","password");
+        user.topic.push("t1");
+        user.descreption.push("d1");
+        user.topic.push("t1");
+        user.descreption.push("d1");
+
+        console.log(user.topic[0]);
+        console.log(user.descreption[0]);
+        let makediv=document.createElement('div');
+        makediv.innerHTML=user.topic;
+        document.body.appendChild(makediv)
+
+    </script>
+</body>
+</html>
