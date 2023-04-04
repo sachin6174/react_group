@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // xhr
+        const xhr = new XMLHttpRequest();
+            const url = 'http://example.com/api/data';
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                    console.log(xhr.responseText);
+                }
+            };
+
+            xhr.open('GET', url, true);
+            xhr.send();
+
+        // fetch
+        const url_2 = 'http://example.com/api/data';
+
+            fetch(url_2)
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error(error));
+
+        //ajax        
+        const url_3 = 'http://example.com/api/data';
+
+            $.ajax({
+                type: 'GET',
+                url: url_3,
+                success: function (data) {
+                    console.log(data);
+                },
+                error: function (error) {
+                    console.error(error);
+                }
+            });
+        //axios
+        const url_4 = 'http://example.com/api/data';
+
+            axios.get(url_4)
+                .then(response => console.log(response.data))
+                .catch(error => console.error(error));
+
+    
+    </script>
+</body>
+</html>
