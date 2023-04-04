@@ -1,0 +1,30 @@
+<script>
+    let fun=async ()={
+        // arrow fi
+    }
+
+    async function doInOrder(){
+        console.log("exexuting 1....")
+        let p1=await new Promise ((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve("P1");
+            },5000)
+        })
+         console.log("1 executed")
+        console.log("exexuting 2....")
+        let p2= await new Promise ((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve("P2");
+            },5000)
+        })
+        console.log("2 executed")
+
+        // let d1= await p1
+        
+        // let d2= await p2
+
+        console.log("both executed")
+    }
+
+doInOrder()
+</script>

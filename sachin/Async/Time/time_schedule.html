@@ -1,0 +1,45 @@
+<script>
+// let timeoutid = setTimeout(()=>{
+//     console.log("chandan")
+// },2000);
+// clearTimeout(timeoutid)
+// console.log("sachin")
+
+// let i=0
+// let id = setInterval(()=>{
+//     console.log("sachin")
+//     if(i==5){
+//         clearInterval(id)
+//     }
+//     i++;
+// },1000)
+
+for(let i=1;i<=5;i++){
+    setTimeout(()=>{
+        console.log(`${i}`)
+    },1000*i);    
+}
+
+/*  set time out will not execute*/
+// let i=0
+// while(i<1000000000*2){
+//     i++;
+// }
+
+
+/* we have to make this asynchronous*/
+function callme(){
+    let job =new Promise((resolve,reject )=>{
+        let i = 0
+        while(i<10000000000){
+                i++;
+        }
+        resolve();
+    })
+    return job
+}
+
+  
+console.log(callme())
+
+</script>

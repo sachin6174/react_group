@@ -1,4 +1,6 @@
 
+<script>
+
 
 fetch('https://api.codingninjas.com/api/v3/courses')
   .then(response => response.json())
@@ -63,3 +65,15 @@ Promise(): Represents a value that may not be available yet but will be resolved
 async/await: Allows you to write asynchronous code that looks like synchronous code by using the async keyword on a function that returns a Promise, and await keyword when calling other async functions.
 These are just a few examples of the many async methods and functions available in JavaScript.
  */
+
+
+fetch("https://api.codingninjas.com/api/v3/courses").then((res)=>{
+return res.json()
+}).then((data)=>{
+console.log(data);
+}).catch(()=>{
+console.log("data not recieved")
+})
+
+// `https://api.openweathermap.org/data/2.5/weather?q=${city}&unit=metric&appid=841f8d1bd9510f89725f5741f32ee238`
+</script>
