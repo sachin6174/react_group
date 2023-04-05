@@ -1,9 +1,9 @@
-const app = require("express")();
 
-/*
+
+
 const express = require("express");
 const app = express();
-*/
+
 
 app.get("/", function(req,res){
 //   res.sendFile(__dirname+"/index.html");
@@ -30,7 +30,7 @@ app.get("/search", function(req,res){
     //res.send(`welcome to google search here is ur ${obj.q} ${obj.f}`)
 });
 
-let port=3000;
+let port=process.env.PORT || 7777;
 app.listen(port, function(){
   console.log(`Server is running on port ${port}`);
 });
