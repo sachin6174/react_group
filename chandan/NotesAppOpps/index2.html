@@ -6,8 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>login-page</title>
-    <link rel="stylesheet" href="https://cdn.tailwindcss.com/plugins/container.min.css">
-    <link rel="stylesheet" href="https://cdn.tailwindcss.com/plugins/typography.min.css">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
 
     <style>
         .del {
@@ -71,7 +70,13 @@
             </button>
 
             <button id="dele" class="bg-white font-bold font-serif text-black mt-8 px-2 h-6 rounded-xl">
-                CLEAR-OLD-DATA
+                CLEAR-OLD-NOTES
+            </button>
+            <button id="user-display" class="bg-white font-bold font-serif text-black mt-8 px-2 h-6 rounded-xl">
+                Hello User
+            </button>
+            <button id="logout" class="bg-white font-bold font-serif text-black mt-8 px-2 h-6 rounded-xl">
+                Logout
             </button>
             <a id="visit-this"></a>
         </div>
@@ -93,6 +98,8 @@
 
         };
 
+
+
         // login btn
         let current_user_name = "";
         let login_button = document.getElementById('login_btn');
@@ -100,13 +107,37 @@
             let username = document.getElementById('login_username').value;
             let password = document.getElementById('login_password').value;
             if (JSON.parse(localStorage.getItem(`${username}`))) {
+                current_user_name = username
                 let current_user = JSON.parse(localStorage.getItem(`${username}`))
                 if (current_user.user_name === username && current_user.password === password) {
-                    console.log(current_user)
-                    document.getElementById("to_hide").remove();
+                    // console.log(current_user)
                     document.getElementById("to_show").style.visibility = "visible"
+
+                    // setup username dispaly
+                    
+                    document.getElementById("user-display").innerHTML = `Hello ${current_user_name}`
+
+                    // populating older
+                    if (localStorage.getItem(`${current_user_name}`)) {
+
+                        let current_user = JSON.parse(localStorage.getItem(`${current_user_name}`))
+                        console.log(current_user)
+                        let cnt = current_user.topic.length;
+                        console.log(cnt)
+                        for (let i = 0; i < cnt; i++) {
+                            let topic = current_user.topic[i];
+                            let description = current_user.description[i]
+                            let para = document.getElementById("main");
+                            para.innerHTML += `<div id="${i}_${current_user_name}_div" >topic is :  ${topic} <br/> description is :  ${description} <br/> <button class="del" id="${i}">Delete</button><div><hr/>`;
+                        }
+                    }
+
                     // alert("signed in sucessfully");
-                    current_user_name = username
+                    // current_user_name = username
+                    document.getElementById("to_hide").remove();
+
+
+                    
 
                 } else {
                     alert("password wrong")
@@ -114,10 +145,6 @@
             } else {
                 alert("not a user signup");
             }
-            document.getElementById('login_username').value = "";
-            document.getElementById('login_password').value = "";
-
-
         })
 
         //signup btn
@@ -143,67 +170,70 @@
 
 
         // add new 
+        
         let btn = document.getElementById("add");
-        let para = document.getElementById("main");
-        let cnt = 0;
         btn.addEventListener("click", () => {
+            // console.log(current_user_name)
+            let current_user = JSON.parse(localStorage.getItem(`${current_user_name}`))
+            let para = document.getElementById("main");
             let topic = document.getElementById("topic-value").value;
             let description = document.getElementById("description-value").value;
-            let current_user = JSON.parse(localStorage.getItem(`${current_user_name}`))
-            if (topic && description) {
-                para.innerHTML += `<div id="${cnt}_div" >topic is :  ${topic} <br/> description is :  ${description}<br/> <button class="del" id="${cnt}_btn">Delete</button><div> <hr/>`;
-                current_user.topic.push(topic)
-                current_user.description.push(description)
-                cnt++;
-            }
-
-            localStorage.setItem("cnt", cnt);
-
+            
+            let i= current_user.topic.length;
+            para.innerHTML += `<div id="${i}_${current_user_name}_div" >topic is :  ${topic} <br/> description is :  ${description} <br/> <button class="del" id="${i}">Delete</button><div><hr/>`;
+            current_user.topic.push(topic)
+            current_user.description.push(description)
+            
+            localStorage.setItem(`${current_user.user_name}`, JSON.stringify(current_user))
+            
             document.getElementById("topic-value").value = "";
             document.getElementById("description-value").value = "";
-            // console.log(size);
-            console.log(cnt);
         });
 
-        // populating older
-        if (localStorage.getItem("cnt")) {
-            cnt = localStorage.getItem("cnt");
-            console.log(cnt);
-
-            for (let i = 0; i < cnt; i++) {
-                let topic = localStorage.getItem(`topic_${i}`);
-                let description = localStorage.getItem(`description_${i}`);
-                para.innerHTML += `<div id="${i}_div" >topic is :  ${topic} <br/> description is :  ${description} <br/> <button class="del" id="${i}_btn">Delete</button><div><hr/>`;
-            }
-        }
 
         //clear btn
+        // dont clear the object just clear their notes
         let delete_btn = document.getElementById("dele");
         delete_btn.addEventListener("click", () => {
-            localStorage.clear();
-            cnt = 0;
-            document.getElementById("main").innerHTML = null;
+
         });
+
+
 
         // delete
-        let all_delete_buttons = document.getElementsByClassName("del");
-        console.log(all_delete_buttons);
-        let body = document.getElementsByTagName("body")[0];
-        // for(let i=0;i<cnt;i++){
-        body.addEventListener("click", (e) => {
-            console.log(e.target.id[0]);
-            if (e.target.id[2] == "d") {
-                return;
-            }
-            let myid = e.target.id[0] + "_div";
-            let element_to_remove = document.getElementById(myid);
-            console.log(element_to_remove);
-            element_to_remove.remove();
-            localStorage.removeItem(myid);
-            cnt--;
-            localStorage.setItem("cnt", cnt);
-        });
+        // delete click
+        setInterval(()=>{
+            const deletenote = document.querySelectorAll('.del');// 
+            // console.log(deletenote, "collected btns");
+            deletenote.forEach((button) => {
+                button.addEventListener("click", (e) => {
+                    console.log()
+                    current_user = JSON.parse(localStorage.getItem(`${current_user_name}`))
+                    current_user.topic.splice(e.target.id,1);
+                    current_user.description.splice(e.target.id,1);
+                    if(document.getElementById(`${e.target.id}_${current_user_name}_div`)){
+                        document.getElementById(`${e.target.id}_${current_user_name}_div`).remove()
+                    }
+                    
+                    localStorage.setItem(`${current_user.user_name}`, JSON.stringify(current_user))
+                })
+            });
+        },500)
 
+    //    const deletenote = document.getElementsByClassName("del");
+    //    console.log(deletenote);
+    //     Array(deletenote).forEach((button) => {
+    //         console.log(button);
+    //         button.addEventListener('click', (e) => {
+    //             console.log(`Button ${e.id} was clicked.`);
+    //         });
+    //     });
+
+        //logout btn
+        let logoutbtn = document.getElementById("logout");
+        logoutbtn.addEventListener("click",()=>{
+            location.reload()
+        })
     </script>
 </body>
 

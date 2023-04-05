@@ -1,2 +1,2 @@
 // how to print without a new line in js  -> ans use console.log("sachin","kumar")
-//
+// if we have to apply event listener to multiple items use query selectoe to grab// find out why not working on getElementById
