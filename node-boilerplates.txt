@@ -16,6 +16,12 @@ app.listen(port, () => {
 including modules
 
 
+
+
+
+
+
+
 //including express
 const express = require('express')
 const app = express()
@@ -33,6 +39,14 @@ app.use(bodyparser.urlencoded({ extended: true }));
 
 //public file declaration
 app.use(express.static("public"))//declare a public folder
+
+
+
+
+
+
+
+
 
 
 //latest snippet
