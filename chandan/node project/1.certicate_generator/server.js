@@ -16,7 +16,7 @@ app.get('/', function (req, res) {
 
 app.post("/",function (req, res) {
   console.log(req.body)
-  res.send(`You submitted ${req.body.name}  ${req.body.age} ${req.body.class} `)
+  res.send(`<h1 class="bg-black">You submitted ${req.body.name}<h1/> <br/> <h1>  ${req.body.age} ${req.body.class} <h1/>`)
 })
 
 
