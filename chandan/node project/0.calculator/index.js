@@ -1,37 +1,49 @@
 const express = require('express')
 const app = express()
 
+//including pug module (html template engine)
+app.set("view engine", "pug");
+app.set("views",__dirname+ "/views");
+
+//including body parser module
+const bodyparser=require('body-parser')
+app.use(bodyparser.urlencoded({ extended: true }));
+
+//public file declaration
+app.use(express.static("public"))//declare a public folder
+
+
 app.get('/', function (req, res) {
-  res.send('start calculating !!!!')
+  res.sendFile(__dirname+"/index.html")
+  
 })
 
-app.get('/add', function (req, res) {
-  var number1 = parseInt(req.query.a)
-  var number2 = parseInt(req.query.b)
-  var sum = (number1 + number2).toString()
-  res.send(sum)
+app.post("/",function (req, res) {
+  
+  
+  for(key in req.body){
+    if(key=="add"){
+      let result={ans:parseInt(req.body.num1)+parseInt(req.body.num2),key:"additon"}
+
+      res.render("index.pug", result);
+    }else if(key=="subtract"){
+      let result={ans:parseInt(req.body.num1)-parseInt(req.body.num2),key:"subtraction"}
+
+      res.render("index.pug", result);
+    }else if(key=="multiply"){
+      let result={ans:parseInt(req.body.num1)*parseInt(req.body.num2),key:"multiplication"}
+      res.render("index.pug", result);
+
+    }else if(key=="divide"){
+      let result={ans:parseInt(req.body.num1)/parseInt(req.body.num2),key:"division"}
+
+      res.render("index.pug", result);
+    }
+  }
+ 
+  
 })
 
-app.get('/subtract', function (req, res) {
-  var number1 = parseInt(req.query.a)
-  var number2 = parseInt(req.query.b)
-  var difference = (number1 - number2).toString()
-  res.send(difference)
-})
-
-app.get('/multiply', function (req, res) {
-  var number1 = parseInt(req.query.a)
-  var number2 = parseInt(req.query.b)
-  var product = (number1 * number2).toString()
-  res.send(product)
-})
-
-app.get('/divide', function (req, res) {
-  var number1 = parseInt(req.query.a)
-  var number2 = parseInt(req.query.b)
-  var quotient = (number1 / number2).toString()
-  res.send(quotient)
-})
 
 app.listen(3000, function () {
   console.log('Successfully started calculator application!')
