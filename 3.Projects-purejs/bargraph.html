@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+        div{
+            background-color: blanchedalmond;
+            height: 300px;
+        }
+        .bar{
+            display: inline-block;
+            background-color: black;
+            height: 100px;
+            width: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+    <script>
+        "use strict"
+        let arr = [99,171,28,91,32,64,77]
+        let bar = document.getElementsByClassName('bar')
+        // console.log(bar)
+        
+        for (let i = 0; i < arr.length; i++) {
+            bar[i].style.height = `${arr[i]}px`
+        }
+    </script>
+</body>
+</html>

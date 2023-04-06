@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #dice1,
+      #dice2 {
+        display: inline-block;
+        border-color: black;
+        border-style: solid;
+        background-color: aquamarine;
+        height: 100px;
+        width: 100px;
+        font-size: 20px;
+        text-align: center;
+      }
+      div {
+        margin: 10px;
+        background-color: blanchedalmond;
+        height: 300px;
+      }
+      .bar {
+        display: inline-block;
+        background-color: black;
+        height: 100px;
+        width: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="dice1">0</div>
+    <div id="dice2">0</div>
+    <div class="box">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <script>
+      let dice1 = document.getElementById("dice1");
+      let dice2 = document.getElementById("dice2");
+
+      function generate(a, b) {
+        let rand = Math.floor(Math.random() * (b - a) + a);
+        return rand;
+      }
+      let n = 2000;
+      let arr = new Array(11)
+      arr.fill(0);
+      while (n--) {
+        let rand1 = generate(1, 7);
+        let rand2 = generate(1, 7);
+        dice1.innerText = rand1;
+        dice2.innerText = rand2;
+        let num = rand1 + rand2
+        arr[num - 2]++;
+      }
+      console.log(arr)
+      
+      let bar = document.getElementsByClassName("bar");
+      // console.log(bar)
+
+      for (let i = 0; i < arr.length; i++) {
+        bar[i].style.height = `${arr[i]}px`;
+      }
+
+      //   let n = 10;
+    //   while (n-- > 0) {
+    //     console.log(generate(1, 7));
+    //   }
+    </script>
+  </body>
+</html>

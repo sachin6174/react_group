@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gaussian Curve</title>
+    <style>
+        body{
+            background-color: wheat;
+        }
+        .box{
+            
+            display: flex;
+            justify-content: center;
+            border-radius: 7px;
+            height: 400px;
+            /* padding: 7px; */
+
+            /* align-items: center; */
+
+        }
+      .dice {
+        display: inline-block;
+        border-color: black;
+        border-style: solid;
+        background-color: aquamarine;
+        height: 100px;
+        width: 100px;
+        font-size: 20px;
+       
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        
+        
+        
+      }
+      div {
+        margin: 10px;
+        background-color: black;
+        height: 400px;
+      }
+      .bar {
+        display: inline-block;
+        margin:1px;
+        background-color: black;
+        height: 100px;
+        width: 9px;
+        
+      }
+      .flexcontainer{
+        border: 7px solid black;
+        border-radius: 7px;
+        height: 200px;
+        background-color: brown;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+      }
+     .buttonflexcon{
+        background-color: brown;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 7px solid black;
+        border-radius: 7px;
+     }
+     .reloader{
+        height: 40px;
+        background-color: aquamarine;
+        border: 4px solid black;
+        border-radius: 5px;
+        width: 100px;
+        font-size: large;
+        
+
+     }
+
+     h1{
+        text-align: center;
+
+     }
+
+
+    </style>
+  </head>
+
+  <body>
+
+    <h1>Gaussian Curve For 8 Dice</h1>
+    
+    
+    <div class="flexcontainer">
+        <div class="dice">0</div>
+        <div class="dice">0</div>
+        <div class="dice">0</div>
+        <div class="dice">0</div>
+        <div class="dice">0</div>
+        <div class="dice">0</div>
+        <div class="dice">0</div>
+        <div class="dice">0</div>
+    </div>
+    
+    <div class="box">
+     
+    </div>
+    <div class="buttonflexcon">
+        <button class="reloader" onclick="location.reload()";>generate</button>
+    </div>
+    
+    
+
+
+    <script>
+        function getColor(){
+    let rand1=Math.floor(Math.random()*16);
+    let rand2=Math.floor(Math.random()*16);
+    let rand3=Math.floor(Math.random()*16);
+    let rand4=Math.floor(Math.random()*16);
+    let rand5=Math.floor(Math.random()*16);
+    let rand6=Math.floor(Math.random()*16);
+    console.log(rand1,rand2,rand3,rand4,rand5,rand6);
+    if(rand1==10){
+        rand1='A';
+    }
+    if(rand2==10){
+        rand2='A';
+    }
+    if(rand3==10){
+        rand3='A';
+    }
+    if(rand4==10){
+        rand4='A';
+    }
+    if(rand5==10){
+        rand5='A';
+    }
+    if(rand6==10){
+        rand6='A';
+    }
+
+
+    if(rand1==11){
+        rand1='B';
+    }
+    if(rand2==11){
+        rand2='B';
+    }
+    if(rand3==11){
+        rand3='B';
+    }
+    if(rand4==11){
+        rand4='B';
+    }
+    if(rand5==11){
+        rand5='B';
+    }
+    if(rand6==11){
+        rand6='B';
+    }
+
+
+    if(rand1==12){
+        rand1='C';
+    }
+    if(rand2==12){
+        rand2='C';
+    }
+    if(rand3==12){
+        rand3='C';
+    }
+    if(rand4==12){
+        rand4='C';
+    }
+    if(rand5==12){
+        rand5='C';
+    }
+    if(rand6==12){
+        rand6='C';
+    }
+    
+
+    if(rand1==13){
+        rand1='D';
+    }
+    if(rand2==13){
+        rand2='D';
+    }
+    if(rand3==13){
+        rand3='D';
+    }
+    if(rand4==13){
+        rand4='D';
+    }
+    if(rand5==13){
+        rand5='D';
+    }
+    if(rand6==13){
+        rand6='D';
+    }
+
+
+    if(rand1==14){
+        rand1='E';
+    }
+    if(rand2==14){
+        rand2='E';
+    }
+    if(rand3==14){
+        rand3='E';
+    }
+    if(rand4==14){
+        rand4='E';
+    }
+    if(rand5==14){
+        rand5='E';
+    }
+    if(rand6==14){
+        rand6='E';
+    }
+
+
+    if(rand1==15){
+        rand1='F';
+    }
+    if(rand2==15){
+        rand2='F';
+    }
+    if(rand3==15){
+        rand3='F';
+    }
+    if(rand4==15){
+        rand4='F';
+    }
+    if(rand5==15){
+        rand5='F';
+    }
+    if(rand6==15){
+        rand6='F';
+    }
+    let mycolor=`#${rand1}${rand2}${rand3}${rand4}${rand5}${rand6}`
+    return mycolor;
+}
+      let dice = document.getElementsByClassName("dice");
+        let box = document.getElementsByClassName('box')[0]
+    
+        for(let i = 0;i < 41;i++){
+            let bar = document.createElement('span')
+            bar.setAttribute('class','bar')
+            bar.style.backgroundColor = getColor();
+            box.appendChild(bar)
+        
+        }
+      function generate(a, b) {
+        let rand = Math.floor(Math.random() * (b - a) + a);
+        return rand;
+      }
+      let n = 1300;
+      let arr = new Array(41);
+      arr.fill(0);
+      while (n--) {
+        let rand1 = generate(1, 7);
+        let rand2 = generate(1, 7);
+        let rand3 = generate(1, 7);
+        let rand4 = generate(1, 7);
+        let rand5 = generate(1, 7);
+        let rand6 = generate(1, 7);
+        let rand7 = generate(1, 7);
+        let rand8 = generate(1, 7);
+        dice[0].innerText = rand1;
+        dice[1].innerText = rand2;
+        dice[2].innerText = rand3;
+        dice[3].innerText = rand4;
+        dice[4].innerText = rand5;
+        dice[5].innerText = rand6;
+        dice[6].innerText = rand7;
+        dice[7].innerText = rand8;
+        let num = rand1 + rand2 + rand3 + rand4 + rand5 + rand6 + rand7 + rand8;
+        arr[num - 8]++;
+      }
+      console.log(arr);
+
+      let bar = document.getElementsByClassName("bar");
+      // console.log(bar)
+
+      for (let i = 0; i < arr.length; i++) {
+        bar[i].style.height = `${arr[i]*3}px`;
+      }
+
+      //   let n = 10;
+      //   while (n-- > 0) {
+      //     console.log(generate(1, 7));
+      //   }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: wheat;
+        }
+
+        #input {
+            background-color: aquamarine;
+            color: black;
+        }
+
+        .element {
+            text-align: center;
+            color: aliceblue;
+            margin: 10px;
+            display: inline-block;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        .button {
+            border-radius: 4px;
+            background-color: brown;
+            margin: 10px;
+        }
+
+        .ans {
+            overflow-wrap: break-word;
+            color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex">
+        <label for="input">Please enter the text</label>
+        <input type="number" name="input" id="input">
+        <button id="calculate" class="button">Calculate</button>
+
+    </div>
+    <p class="ans"></p>
+
+    <script>
+        function fibonacci(n) {
+            let dp = new Array(n + 1);
+            dp.fill(0)
+            dp[0] = 0;
+            dp[1] = 1;
+            for (let i = 2; i <= n; i++) {
+                dp[i] = dp[i - 1] + dp[i - 2];
+            }
+            return dp[n].toLocaleString();
+            // return dp[n];
+        }
+
+
+
+        let ans = document.getElementsByClassName('ans')[0]
+        let calculate = document.getElementById('calculate')
+        calculate.addEventListener('click', () => {
+            let input = document.getElementById('input').value
+            ans.innerText = (fibonacci(input))
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <style>
+      label {
+        color: azure;
+      }
+
+      body {
+        background-color: black;
+      }
+
+      div {
+        margin: 50px;
+        text-align: center;
+        color: aliceblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <label for="city">Enter City</label>
+      <input name="city" type="text" value="india" />
+      <button>Get Details</button>
+    </div>
+    <div></div>
+    <script>
+      let btn = document.getElementsByTagName("button")[0];
+      let div = document.getElementsByTagName("div")[1];
+      btn.addEventListener("click", () => {
+        let city = String(document.getElementsByTagName("input")[0].value);
+        // console.log(city);
+        fetch(
+          `https://api.openweathermap.org/data/2.5/weather?q=${city}&unit=metric&appid=841f8d1bd9510f89725f5741f32ee238`
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            let temperature = data.main.temp;
+            console.log(data);
+            let c = temperature - 273;
+            c = c.toFixed(2);
+            let f = c * (9 / 5) + 32;
+            f = f.toFixed(2);
+            div.innerHTML = `The temperature of ${city} is ${c} in degree celcius
+                and ${f} in degree and ${temperature} in kelvin`;
+          });
+
+        // let str = JSON.stringify(sachin);
+      });
+    </script>
+  </body>
+</html>

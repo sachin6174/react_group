@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial Calculator</title>
+    <link rel="icon" type="image/x-icon" href="exclamation-mark.png">
+    <style>
+        #value{
+            display: block;
+            margin: 20px;
+            color: darksalmon;
+            background: black;
+            padding: 30px;
+            height:500px;
+            text-overflow: clip;
+            word-break: break-word;
+            
+        }
+        body{
+            background-color: grey;
+        }
+
+        .flexcontainer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        label{
+            color: rgb(217, 211, 211);
+            font-style: normal;
+            margin: 5px;
+            font-size: 25px;
+        }
+        #num{
+            width: 200px;
+            height: 30px;
+            font-size: 25px;
+            text-align: center;
+            margin: 10px;
+        }
+        #id{
+            background-color: lightseagreen;
+            font-size: 20px;
+            border-radius: 7px;
+            margin: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="flexcontainer">
+        <label for="input">Get Factorial of a Number</label>
+
+        <input id="num" type="text" name="input" value="100">
+        
+        <button id="id">Get-Factorial-Here</button>
+
+    </div>
+    
+
+    <div id="value"></div>
+        <script>
+
+            function sum(num1, num2) {
+                let sum="";
+                let carry = 0;
+
+                for (let i = num1.length - 1, j = num2.length - 1; i >= 0 || j >= 0; i--, j--) {
+                    if (i >= 0) {
+                        carry =carry+ Number(num1[i]);
+                    }
+                    if (j >= 0) {
+                        carry = carry +Number(num2[j]);
+                    }
+                    // console.log(carry)
+                    let digit = String(carry % 10);
+                    sum+=digit;
+                    carry = parseInt(carry / 10);
+                    
+                }
+                if (carry > 0) {
+                    sum+=String(carry);
+                } 
+                let revnum="";
+                for(let i=sum.length-1;i>=0;i--){
+                    revnum+=sum[i];
+                }
+                sum=revnum;
+
+                return sum;
+            }
+
+            function multiply(p1, p2) {
+                let back0 = 0;
+                let ans = "";
+                for (let i = p2.length - 1; i >= 0; i--) {
+                    let digit = Number(p2[i]);
+
+                    let num = "";
+
+                    let copyback0 = back0;
+                    while (copyback0--) {
+                        num+="0";
+                    }
+                    back0++;
+
+                    let carry = 0;
+                    for (let j = p1.length - 1; j >= 0; j--) {
+                        let mul = (digit * Number(p1[j])) + carry;
+                        num+=String(mul % 10 );
+                        carry = parseInt(mul / 10);
+                    }
+
+                    if (carry) {
+                        num+=(String(carry));
+                    }
+
+                    let revnum="";
+                    for(let i=num.length-1;i>=0;i--){
+                        revnum+=num[i];
+                    }
+                    num=revnum;
+
+                    ans = sum(ans, num);
+
+                }
+                return ans;
+            }
+
+            function fact(n) {
+                let fact = "1";
+                for (let i = 1; i <= n; i++) {
+
+                    let numstr = String(i);
+                    // console.log(numstr)
+
+                    fact = multiply(numstr, fact);
+                }
+                return fact;
+            }
+
+            // console.log(sum("12345","21311221"));
+            
+            let div=document.getElementById("value");
+            let btn=document.getElementById('id')
+            btn.addEventListener('click',()=>{
+            let n=document.getElementById('num').value; 
+                    div.innerHTML=fact(Number(n))
+            })
+        </script>
+    </div>
+</body>
+
+</html>

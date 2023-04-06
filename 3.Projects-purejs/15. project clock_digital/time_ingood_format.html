@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bunty</title>
+    <style>
+        div{
+            margin: 10px;
+            background-color: rgb(194, 194, 201);
+            height: 50px;
+            
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div >
+        
+    </div>
+
+    <div>
+
+    </div>
+
+
+
+    <script>
+        
+
+        let element=document.getElementsByTagName("div")[0]
+        
+        setInterval(()=>{
+            let a=Math.floor((Math.random()*51))
+            element.innerHTML=a;
+        },300)
+
+        let element2=document.getElementsByTagName("div")[1]
+        setInterval(()=>{
+
+            let b=new Date()           
+            let hours=Number(b.getHours())
+            let mins =Number(b.getMinutes())
+            let secs=Number(b.getSeconds())
+            
+            let am_pm = "am";
+
+            if (hours > 12)
+            {
+                am_pm = "pm";
+                hours = hours - 12;
+            }
+            
+            
+            let hour_string="";
+            let min_string="";
+            let sec_string="";
+
+            if (hours < 10){
+                hour_string = "0"+String(hours);
+            }else{
+                hour_string =String(hours);
+            }
+            if (mins < 10){
+                min_string = "0"+String(mins);
+            }else{
+                min_string =String(mins);
+            }
+            if (secs < 10){
+                sec_string = "0"+ String(secs);
+            }else{
+                sec_string = String(secs);
+            }
+
+            let date_string=`Time is : ${hour_string}:${min_string}:${sec_string}:${am_pm}`
+
+            element2.innerHTML=date_string;
+
+        },700)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" value="10">
+    <button id="submit">calculate</button>
+    <p id="ans"></p>
+    <script>
+        function factorial(n){
+            if(n <= 1){
+                return n;
+            }
+
+            return n * factorial(n - 1);
+        }
+
+        
+        let btn = document.getElementById('submit')
+        btn.addEventListener('click',() => {
+            let input = document.getElementsByTagName('input')[0].value
+            let ans = document.getElementById('ans')
+            ans.innerText = factorial(parseInt(input)).toLocaleString()
+        })
+    </script>
+</body>
+</html>

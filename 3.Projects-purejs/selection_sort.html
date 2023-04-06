@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            background-color: antiquewhite;
+            justify-items: center;
+            height: 200px;
+        }
+
+        .bars {
+            display: inline-block;
+            height: 100px;
+            width: 25px;
+            margin: 5px;
+            font-size: 12px;
+            text-align: center;
+            /* background-color: rgb(194, 100, 164); */
+        }
+    </style>
+</head>
+
+<body>
+    <audio id="myAudio">
+        <source src="1.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <div class="box">
+    </div>
+
+    <script>
+        let x = document.getElementById("myAudio");
+        // function playAudio() {
+        //     x.play();
+        // }
+
+        // function pauseAudio() {
+        //     x.pause();
+        // }
+        // x.play();
+        function getColor() {
+            let rand1 = Math.floor(Math.random() * 16);
+            let rand2 = Math.floor(Math.random() * 16);
+            let rand3 = Math.floor(Math.random() * 16);
+            let rand4 = Math.floor(Math.random() * 16);
+            let rand5 = Math.floor(Math.random() * 16);
+            let rand6 = Math.floor(Math.random() * 16);
+            //console.log(rand1,rand2,rand3,rand4,rand5,rand6);
+
+            if (rand1 == 10) {
+                rand1 = 'A';
+            }
+            if (rand2 == 10) {
+                rand2 = 'A';
+            }
+            if (rand3 == 10) {
+                rand3 = 'A';
+            }
+            if (rand4 == 10) {
+                rand4 = 'A';
+            }
+            if (rand5 == 10) {
+                rand5 = 'A';
+            }
+            if (rand6 == 10) {
+                rand6 = 'A';
+            }
+
+
+            if (rand1 == 11) {
+                rand1 = 'B';
+            }
+            if (rand2 == 11) {
+                rand2 = 'B';
+            }
+            if (rand3 == 11) {
+                rand3 = 'B';
+            }
+            if (rand4 == 11) {
+                rand4 = 'B';
+            }
+            if (rand5 == 11) {
+                rand5 = 'B';
+            }
+            if (rand6 == 11) {
+                rand6 = 'B';
+            }
+
+
+            if (rand1 == 12) {
+                rand1 = 'C';
+            }
+            if (rand2 == 12) {
+                rand2 = 'C';
+            }
+            if (rand3 == 12) {
+                rand3 = 'C';
+            }
+            if (rand4 == 12) {
+                rand4 = 'C';
+            }
+            if (rand5 == 12) {
+                rand5 = 'C';
+            }
+            if (rand6 == 12) {
+                rand6 = 'C';
+            }
+
+
+            if (rand1 == 13) {
+                rand1 = 'D';
+            }
+            if (rand2 == 13) {
+                rand2 = 'D';
+            }
+            if (rand3 == 13) {
+                rand3 = 'D';
+            }
+            if (rand4 == 13) {
+                rand4 = 'D';
+            }
+            if (rand5 == 13) {
+                rand5 = 'D';
+            }
+            if (rand6 == 13) {
+                rand6 = 'D';
+            }
+
+
+            if (rand1 == 14) {
+                rand1 = 'E';
+            }
+            if (rand2 == 14) {
+                rand2 = 'E';
+            }
+            if (rand3 == 14) {
+                rand3 = 'E';
+            }
+            if (rand4 == 14) {
+                rand4 = 'E';
+            }
+            if (rand5 == 14) {
+                rand5 = 'E';
+            }
+            if (rand6 == 14) {
+                rand6 = 'E';
+            }
+
+
+            if (rand1 == 15) {
+                rand1 = 'F';
+            }
+            if (rand2 == 15) {
+                rand2 = 'F';
+            }
+            if (rand3 == 15) {
+                rand3 = 'F';
+            }
+            if (rand4 == 15) {
+                rand4 = 'F';
+            }
+            if (rand5 == 15) {
+                rand5 = 'F';
+            }
+            if (rand6 == 15) {
+                rand6 = 'F';
+            }
+            let mycolor = `#${rand1}${rand2}${rand3}${rand4}${rand5}${rand6}`
+            return mycolor;
+        }
+
+        let arr = [100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 11, 55, 9, 23, 6, 79, 23, 78, 23, 93, 50, 40, 30, 20, 10, 30, 20, 10, 11, 55, 9, 23, 6];
+        let clr = [];//color array
+        let box = document.getElementsByClassName('box')[0];
+        let n = arr.length;
+        for (let i = 0; i < n; i++) {
+            let span = document.createElement('span');
+            span.setAttribute('class', 'bars');
+            box.appendChild(span);
+            clr.push(getColor());
+        }
+        // let k=3;
+        let span = document.getElementsByTagName('span')
+        for (let i = 0; i < arr.length; i++) {
+            span[i].style.height = `${arr[i]}px`;
+            span[i].innerHTML = arr[i];
+            span[i].style.backgroundColor = clr[i];
+        }
+        let k = 3;
+        for (let i = 0; i < n - 1; i++) {
+            for (let j = n - 1; j >= i + 1; j--) {
+                function myfu() {
+                    if (arr[j - 1] > arr[j]) {
+                        span[j].style.height = `${arr[j - 1]}px`
+                        span[j - 1].style.height = `${arr[j]}px`
+                        span[j].innerHTML = arr[j - 1]
+                        span[j - 1].innerHTML = arr[j]
+
+
+                        let temp = arr[j];
+                        arr[j] = arr[j - 1];
+                        arr[j - 1] = temp;
+
+                        span[j].style.backgroundColor = clr[j - 1]
+                        span[j - 1].style.backgroundColor = clr[j]
+
+                        let colr = clr[j];
+                        clr[j] = clr[j - 1];
+                        clr[j - 1] = colr;
+                    }
+                }
+                setTimeout(() => {
+                    myfu()
+                }, (k++) * 100)
+            }
+
+        }
+        console.log(arr)
+
+    </script>
+</body>
+
+</html>

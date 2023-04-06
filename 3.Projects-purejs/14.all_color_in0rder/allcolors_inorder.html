@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+
+
+
+    <script>
+        
+       
+        function generator(i){
+            let myarr=new Array();
+            myarr.push(0);
+            myarr.push(0);
+            myarr.push(0);
+            if(0<=i<=265){
+                myarr[2]=i;
+            }
+            if(256<=i<=(256**2-1)){
+                myarr[2]=i%256;
+                myarr[1]=parseInt(i/256);
+            }else{
+                myarr[2]=i%(256*256);
+                i=parseInt(i/(256**2));
+                myarr[1]=i/256;
+                myarr[0]=i%256;
+            }
+            // myarr[0]=255;
+            return `rgb(${myarr[0]},${myarr[1]},${myarr[2]})`
+
+        }
+
+        // console.log(myarr);
+        //16777217
+        let body=document.getElementsByTagName('body')[0]
+        let start=0;
+        let brk=setInterval(() => {
+            body.style.backgroundColor=generator(start);
+            console.log(generator(start))
+            start++;
+            if(start==16770){
+                setTimeout(brk);
+            }
+        }, 0.0000005);
+        
+
+
+    </script>
+
+</body>
+</html>

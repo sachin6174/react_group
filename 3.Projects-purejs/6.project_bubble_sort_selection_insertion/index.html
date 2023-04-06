@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="android-chrome-192x192.png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Visualization</title>
+    
+    <style>
+
+        body{
+
+            background-color: darkseagreen;
+        }
+        .box {
+            background-color: black;
+            justify-items: center;
+            height: 200px;
+
+        }
+
+        .bars {
+            display: inline-block;
+            height: 100px;
+            width: 20px;
+            margin: 5px;
+            font-size: 12px;
+            text-align: center;
+            color: white;
+            /* background-color: rgb(194, 100, 164); */
+        }
+
+        .bars2 {
+            display: inline-block;
+            height: 100px;
+            width: 20px;
+            margin: 5px;
+            font-size: 12px;
+            text-align: center;
+            color: white;
+            /* background-color: rgb(194, 100, 164); */
+        }
+        .bars3 {
+            display: inline-block;
+            height: 100px;
+            width: 20px;
+            margin: 5px;
+            font-size: 12px;
+            text-align: center;
+            color: white;
+            /* background-color: rgb(194, 100, 164); */
+        }
+
+        h1{
+            text-align: center;
+            color:black;
+            border: 2px solid grey;
+            border-radius: 12px;
+            background-color: aliceblue;
+        }
+
+        .head{
+            background-color: black;
+            color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <audio id="myAudio">
+        <source src="1.mp3" type="audio/mpeg">
+    </audio>
+    <h1 class="head">Sorting Algortim Visualization</h1>
+    <h1>Bubble Sort</h1>
+    <div class="box">
+    </div>
+
+    <script>
+        "use strict";
+        let x = document.getElementById("myAudio");
+        // function playAudio() {
+        //     x.play();
+        // }
+
+        // function pauseAudio() {
+        //     x.pause();
+        // }
+        // x.play();
+        function getColor() {
+            let rand1 = Math.floor(Math.random() * 16);
+            let rand2 = Math.floor(Math.random() * 16);
+            let rand3 = Math.floor(Math.random() * 16);
+            let rand4 = Math.floor(Math.random() * 16);
+            let rand5 = Math.floor(Math.random() * 16);
+            let rand6 = Math.floor(Math.random() * 16);
+            // console.log(rand1,rand2,rand3,rand4,rand5,rand6);
+
+            if (rand1 == 10) {
+                rand1 = 'A';
+            }
+            if (rand2 == 10) {
+                rand2 = 'A';
+            }
+            if (rand3 == 10) {
+                rand3 = 'A';
+            }
+            if (rand4 == 10) {
+                rand4 = 'A';
+            }
+            if (rand5 == 10) {
+                rand5 = 'A';
+            }
+            if (rand6 == 10) {
+                rand6 = 'A';
+            }
+
+
+            if (rand1 == 11) {
+                rand1 = 'B';
+            }
+            if (rand2 == 11) {
+                rand2 = 'B';
+            }
+            if (rand3 == 11) {
+                rand3 = 'B';
+            }
+            if (rand4 == 11) {
+                rand4 = 'B';
+            }
+            if (rand5 == 11) {
+                rand5 = 'B';
+            }
+            if (rand6 == 11) {
+                rand6 = 'B';
+            }
+
+
+            if (rand1 == 12) {
+                rand1 = 'C';
+            }
+            if (rand2 == 12) {
+                rand2 = 'C';
+            }
+            if (rand3 == 12) {
+                rand3 = 'C';
+            }
+            if (rand4 == 12) {
+                rand4 = 'C';
+            }
+            if (rand5 == 12) {
+                rand5 = 'C';
+            }
+            if (rand6 == 12) {
+                rand6 = 'C';
+            }
+
+
+            if (rand1 == 13) {
+                rand1 = 'D';
+            }
+            if (rand2 == 13) {
+                rand2 = 'D';
+            }
+            if (rand3 == 13) {
+                rand3 = 'D';
+            }
+            if (rand4 == 13) {
+                rand4 = 'D';
+            }
+            if (rand5 == 13) {
+                rand5 = 'D';
+            }
+            if (rand6 == 13) {
+                rand6 = 'D';
+            }
+
+
+            if (rand1 == 14) {
+                rand1 = 'E';
+            }
+            if (rand2 == 14) {
+                rand2 = 'E';
+            }
+            if (rand3 == 14) {
+                rand3 = 'E';
+            }
+            if (rand4 == 14) {
+                rand4 = 'E';
+            }
+            if (rand5 == 14) {
+                rand5 = 'E';
+            }
+            if (rand6 == 14) {
+                rand6 = 'E';
+            }
+
+
+            if (rand1 == 15) {
+                rand1 = 'F';
+            }
+            if (rand2 == 15) {
+                rand2 = 'F';
+            }
+            if (rand3 == 15) {
+                rand3 = 'F';
+            }
+            if (rand4 == 15) {
+                rand4 = 'F';
+            }
+            if (rand5 == 15) {
+                rand5 = 'F';
+            }
+            if (rand6 == 15) {
+                rand6 = 'F';
+            }
+            let mycolor = `#${rand1}${rand2}${rand3}${rand4}${rand5}${rand6}`
+            return mycolor;
+        }
+
+        let arr = [100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 11, 55, 9, 23, 6, 79, 23, 78, 23, 93, 50, 40, 30, 20, 10, 13, 36, 78, 24, 85, 29, 24];
+        let clr = [];
+        let clr2 = [];
+        let clr3 = [];
+        let box = document.getElementsByClassName('box')[0];
+        let n = arr.length;
+        for (let i = 0; i < n; i++) {
+            let span = document.createElement('span');
+            span.setAttribute('class', 'bars');
+            box.appendChild(span);
+            let colk = getColor();
+            clr.push(colk);
+            clr2.push(colk);
+            clr3.push(colk);
+        }
+
+        let span = document.getElementsByClassName('bars')
+        for (let i = 0; i < arr.length; i++) {
+            span[i].style.height = `${arr[i]}px`;
+            span[i].innerHTML = arr[i];
+            span[i].style.backgroundColor = clr[i];
+        }
+        let k = 3;
+        for (let i = 0; i < n - 1; i++) {
+            for (let j = 0; j < n - 1 - i; j++) {
+                function fun() {
+
+                    if (arr[j] > arr[j + 1]) {
+                        span[j].style.height = `${arr[j + 1]}px`;
+                        span[j].innerHTML = arr[j + 1];
+                        span[j + 1].style.height = `${arr[j]}px`;
+                        span[j + 1].innerHTML = arr[j];
+
+                        let temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                        //clor swap
+                        span[j].style.backgroundColor = clr[j + 1];
+                        span[j + 1].style.backgroundColor = clr[j];
+                        let colr = clr[j];
+                        clr[j] = clr[j + 1];
+                        clr[j + 1] = colr;
+                    }
+                }
+                setTimeout(() => {
+                    fun();
+                }, ((k++) * 100))
+            }
+        }
+
+
+        let p = document.createElement('p');
+        p.style.height = '10px';
+        p.style.backgroundColor = "black"
+        document.body.appendChild(p)
+
+        let title = document.createElement('h1')
+        title.innerHTML = "Selection Sort"
+        document.body.appendChild(title)
+
+        let box2 = document.createElement('div')
+        box2.setAttribute('class', 'box')
+        document.body.appendChild(box2)
+
+
+        // selection
+
+        let arr2 = [100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 11, 55, 9, 23, 6, 79, 23, 78, 23, 93, 50, 40, 30, 20, 10, 13, 36, 78, 24, 85, 29, 24];
+        for (let i = 0; i < n; i++) {
+            let span2 = document.createElement('span');
+            span2.setAttribute('class', 'bars2');
+            box2.appendChild(span2);
+        }
+
+        let span2 = document.getElementsByClassName('bars2')
+
+
+
+        for (let i = 0; i < arr.length; i++) {
+            span2[i].style.height = `${arr2[i]}px`;
+            span2[i].innerHTML = arr2[i];
+            span2[i].style.backgroundColor = clr2[i];
+        }
+
+        let ss = 3;
+        for (let i = 0; i < n - 1; i++) {
+            for (let j = n - 1; j >= i + 1; j--) {
+                function myfu() {
+                    if (arr2[j - 1] > arr2[j]) {
+                        span2[j].style.height = `${arr2[j - 1]}px`
+                        span2[j - 1].style.height = `${arr2[j]}px`
+                        span2[j].innerHTML = arr2[j - 1]
+                        span2[j - 1].innerHTML = arr2[j]
+
+
+                        let temp = arr2[j];
+                        arr2[j] = arr2[j - 1];
+                        arr2[j - 1] = temp;
+
+                        span2[j].style.backgroundColor = clr2[j - 1]
+                        span2[j - 1].style.backgroundColor = clr2[j]
+
+                        let colr = clr2[j];
+                        clr2[j] = clr2[j - 1];
+                        clr2[j - 1] = colr;
+                    }
+                }
+                setTimeout(() => {
+                    myfu()
+                }, (ss++) * 100)
+            }
+
+        }
+        // insertion sort
+
+        let arr3 = [100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 11, 55, 9, 23, 6, 79, 23, 78, 23, 93, 50, 40, 30, 20, 10, 13, 36, 78, 24, 85, 29, 24];
+        p = document.createElement('p');
+        p.style.height = '10px';
+        p.style.backgroundColor = "black"
+        document.body.appendChild(p)
+
+        title = document.createElement('h1')
+        title.innerHTML = "Insertion Sort"
+        document.body.appendChild(title)
+
+        let box3 = document.createElement('div')
+        box3.setAttribute('class', 'box')
+        document.body.appendChild(box3)
+
+        for (let i = 0; i < n; i++) {
+            let span3 = document.createElement('span');
+            span3.setAttribute('class', 'bars3');
+            box3.appendChild(span3);
+        }
+
+        let span3 = document.getElementsByClassName('bars3')
+
+        for (let i = 0; i < arr.length; i++) {
+            span3[i].style.height = `${arr3[i]}px`;
+            span3[i].innerHTML = arr3[i];
+            // span3[i].style.backgroundColor = clr3[i];
+        }
+        // span3[0].style.innerHTML=arr3[0]
+        span3[0].style.backgroundColor=clr3[0]
+        let ss1=3;
+        for (let i = 1; i < n; i++) {
+            for(let j=i;j>0;j--){
+                function myfu() {
+                    if (arr3[j-1]>arr3[j]) {
+                        span3[j].style.height=arr3[j];
+                        span3[j].style.height = `${arr3[j - 1]}px`
+                        span3[j - 1].style.height = `${arr3[j]}px`
+                        span3[j].innerHTML = arr3[j - 1]
+                        span3[j - 1].innerHTML = arr3[j]
+
+
+                        let temp = arr3[j];
+                        arr3[j] = arr3[j - 1];
+                        arr3[j - 1] = temp;
+
+                        span3[j].style.backgroundColor = clr3[j - 1]
+                        span3[j - 1].style.backgroundColor = clr3[j]
+
+                        let colr = clr3[j];
+                        clr3[j] = clr3[j -1];
+                        clr3[j - 1] = clr3;
+                    }
+                }
+                setTimeout(() => {
+                    myfu()
+                }, (ss1++) * 100)
+            }
+        }
+
+    </script>
+</body>
+
+</html>

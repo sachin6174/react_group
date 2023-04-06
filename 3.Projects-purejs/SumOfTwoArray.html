@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sum Of Two Array</title>
+  </head>
+  <body>
+    <input id="input1" type="text" />
+    <input id="input2" type="text" />
+    <button type="submit">Add</button>
+    <p id="ans"></p>
+
+    <script>
+      let btn = document.getElementsByTagName("button")[0];
+      btn.addEventListener("click", () => {
+        let input1 = document.getElementById("input1").value.trim();
+        let input2 = document.getElementById("input2").value.trim();
+
+        input1 = input1.split(" ");
+        input2 = input2.split(" ");
+        // console.log(input1,input2)
+        let a = new Array();
+        let b = new Array();
+
+        for (let i = 0; i < input1.length; i++) {
+          a.push(parseInt(input1[i]));
+        }
+
+        for (let i = 0; i < input2.length; i++) {
+          b.push(parseInt(input2[i]));
+        }
+
+        // console.log(a,b)
+
+        let n = a.length;
+        let m = b.length;
+
+        let size = n > m ? n : m;
+        // let ans[] = new let[size];
+        let ans = Array(size);
+        ans.fill(0);
+        let i = n - 1;
+        let j = m - 1;
+        let carry = 0,
+          sum = 0;
+        let k = (n < m ? n : m) - 1;
+        let l = size - 1;
+        //        System.out.prletln("k " + k);
+        while (k >= 0) {
+          sum = carry + a[i] + b[j];
+          if (sum > 9) {
+            ans[l] = sum % 10;
+            carry = parseInt(sum / 10);
+          } else {
+            ans[l] = sum;
+            carry = 0
+          }
+          i--;
+          j--;
+          k--;
+          l--;
+        }
+        //        System.out.prletln(i +""+ j+"" +""+ k + " "+carry + " " + a[i]);
+        let val = i > j ? i : j;
+        let arr;
+        if (val == i) {
+          arr = a;
+        } else {
+          arr = b;
+        }
+        if (val >= 0) {
+          while (val >= 0) {
+            sum = arr[val] + carry;
+            //                System.out.prletln("sum" + sum);
+            if (sum > 9) {
+              ans[l] = sum % 10;
+              carry = parseInt(sum / 10);
+            } else {
+              ans[val] = sum;
+              carry = 0
+            }
+            val--;
+          }
+        }
+         let para = document.getElementsByTagName('p')[0]
+        if (carry > 0){
+            let newAns = new Array()
+            newAns.push(carry)
+            newAns = newAns.concat(ans)
+            para.innerText = newAns
+        } else{   
+            para.innerText = ans
+        }
+    });
+    </script>
+  </body>
+</html>

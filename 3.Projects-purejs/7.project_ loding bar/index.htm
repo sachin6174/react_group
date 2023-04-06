@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            width: 0%;
+            background-color: rgb(74, 21, 105);
+            height: 4px;
+        }
+    </style>
+
+</head>
+<body>
+    <p id="slider"></p>
+
+    <script>
+        // setTimeout(()=>{
+        //     let slider=document.getElementById('slider')
+        // let i=1;
+        // let stopper1=setInterval(()=>{
+        //         slider.style.width=`${i}%`;
+        //         i++;
+        //         if(i==101){
+        //             clearInterval(stopper1);
+        //         }
+        // },8)
+        // },2000)
+        let slider=document.getElementById('slider')
+        let i=1;
+        let stopper1=setInterval(()=>{
+                slider.style.width=`${i}%`;
+                i++;
+                if(i==101){
+                    clearInterval(stopper1);
+                }
+        },8)
+    </script>
+</body>
+</html>

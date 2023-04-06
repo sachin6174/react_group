@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box{
+            background-color: red;
+            height: 200px;
+        }
+
+        .bar{
+            background-color: antiquewhite;
+            width: 25px;
+            height: 100px;
+            display: inline-block;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+    
+
+
+
+<script>
+
+let arr=[10,55,60,30,78,25,15,36,47,88];
+let bars=document.getElementsByClassName('bar')
+for(let i=0;i<bars.length;i++){
+    bars[i].style.height=`${arr[i]}px`
+    bars[i].innerHTML=`${arr[i]}`
+}
+
+</script>
+
+
+
+</body>
+</html>

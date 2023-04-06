@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    body{
+      background-color: greenyellow;
+    }
+    td {
+      background-color: rgb(189, 171, 206);
+      height: 50px;
+      width: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <input id="input" type="number" value="10" />
+    <button>Generate Prime No.</button>
+  </div>
+  <!-- <p>
+
+    </p> -->
+  <table></table>
+
+  <script>
+    let table = document.getElementsByTagName("table")[0];
+    // let tr=`<tr><td  class="box">1</td><td class="box">2</td><td class="box">3</td><td class="box">4</td><td class="box">5</td></tr>`;
+    // for(let i=0;i<1000;i++){
+    //     table.innerHTML+=tr;// it is complex in nature
+    //     // string concatination are always complex in time
+    // }
+    function prime(n) {
+      n = Number(n)
+      let primes = new Array(n + 1);
+      for (let i = 0; i < n + 1; i++) {
+        primes[i] = true;
+      }
+      primes[0] = false;
+      primes[1] = false;
+
+      for (let i = 2; i <= parseInt(n / 2); i++) {
+        let x = 2;
+        for (let j = i * i; j <= n && primes[i];) {
+          primes[j] = false;
+          x++;
+          j = i * x;
+        }
+      }
+
+      return primes;
+    }
+
+
+
+    let button = document.getElementsByTagName("button")[0];
+
+    button.addEventListener("click", () => {
+
+      let input = document.getElementById("input").value;
+      let arr = prime(input);
+      let onlyprime = new Array();
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === true) {
+          onlyprime.push(i);
+        }
+      }
+
+      let numberOfrows = Math.ceil(onlyprime.length / 25);
+
+
+      // console.log(numberOfrows)
+
+      let k = 0
+      for (let i = 0; i < numberOfrows; i++) {
+        let tr = document.createElement("tr");
+        for (let j = 0; j < 25; j++) {
+          let td = document.createElement("td");
+          td.innerHTML = onlyprime[k++];
+          tr.appendChild(td);
+          if(k == numberOfrows.length){
+            break;
+          }
+
+        }
+        table.appendChild(tr);
+        if(k == numberOfrows.length){
+          break;
+        }
+      }
+      // let k = 0;
+      // let allTds = document.getElementsByTagName('td');
+      // allTds = document.getElementsByTagName('td');
+      // console.log(allTds)
+      // for (let i = 0; i < allTds.length; i++) {
+      //   if (k == onlyprime.length) {
+      //     break;
+      //   }
+      //   // console.log(allTds[i]);
+      //   allTds[i].innerHTML = onlyprime[k++];
+
+      // }
+
+      // let p = document.createElement("p");
+      // let body = document.getElementsByTagName("body")[0];
+      // body.appendChild(p);
+    });
+  </script>
+</body>
+
+</html>

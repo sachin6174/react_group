@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- https://www.flaticon.com/free-icons/snake -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="1.png">
+    <style>
+        body{
+            background-color: pink;
+        }
+        .i{
+            background: rgb(35, 206, 106) ;
+            height: 50px;
+            width: 50px;
+            font-size: 20px;
+            border: 2px solid black;
+            
+        }
+    </style>
+
+    <title>NoTable</title>
+
+</head>
+<body>
+    <table>
+        <tr>    
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+        </tr>
+    </table>
+
+
+
+    <script>
+
+        let rows=`<tr>    
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+            <td class="i"></td>
+        </tr>`;
+        let table= document.getElementsByTagName('table');
+        console.log(table);
+        for(let i=0;i<100;i++){
+            table[0].innerHTML+=rows;
+        }
+        let td=document.getElementsByTagName('td');
+        for(let i=0;i<td.length;i++){
+            td[i].innerHTML=`&#${128512+i}`;
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prime No. generator</title>
+    <style>
+      .container {
+        display: flex;
+        justify-content: center;
+      }
+      div {
+        margin: 0 auto;
+        display: inline;
+      }
+
+      td {
+        background-color: rgb(189, 171, 206);
+        height: 50px;
+        width: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div id="div" class="container">
+      <input id="input" type="number" />
+      <button>Generate Prime No.</button>
+    </div>
+
+    <table></table>
+
+    <script>
+      let table = document.getElementsByTagName("table")[0];
+      function prime(n) {
+        let primes = new Array(n + 1);
+        for (let i = 0; i < n + 1; i++) {
+          primes[i] = true;
+        }
+        primes[0] = false;
+        primes[1] = false;
+
+        for (let i = 2; i <= parseInt(n / 2); i++) {
+          let x = 2;
+          for (let j = i * i; j <= n && primes[i]; ) {
+            primes[j] = false;
+            x++;
+            j = i * x;
+          }
+        }
+
+        return primes;
+      }
+
+      let button = document.getElementsByTagName("button")[0];
+      button.addEventListener("click", () => {
+        let input = document.getElementById("input").value;
+        let arr = prime(Number(input));
+        let onlyprime = new Array();
+        let index = 0;
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[index++]) {
+            onlyprime.push(i);
+          }
+        }
+
+        let numberOfrows = onlyprime.length / 25;
+        let k = 0;
+        for (let i = 0; i < numberOfrows; i++) {
+          let tr = document.createElement("tr");
+          for (let j = 0; j < 25; j++) {
+            let td = document.createElement("td");
+            td.innerHTML = onlyprime[k++];
+            tr.appendChild(td);
+            if (k == onlyprime.length) {
+              break;
+            }
+          }
+          table.appendChild(tr);
+          if (k == onlyprime.length) {
+            break;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

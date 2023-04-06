@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button id="pink">pink</button>
+    <button id="yellow">yellow</button>
+    <button id="blue"> blue</button>
+    <button id="green">green</button>
+    <button id="red">red</button>
+    <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam quia optio animi soluta ratione quis maxime
+        nihil placeat voluptate iusto totam ex dignissimos molestiae, alias natus vero, aliquam consequuntur nam
+        voluptatem saepe rerum provident. Distinctio quos voluptatibus inventore nihil? Maxime ratione vitae eveniet
+        laborum temporibus odio possimus velit, asperiores sint. Nesciunt adipisci a quae. Explicabo omnis fugit
+        mollitia perferendis reprehenderit nostrum aliquid neque laudantium cupiditate, voluptatem dolorem quo illo
+        quasi eveniet tempore ipsum illum quos saepe hic veritatis accusamus? Reprehenderit corporis sequi dolorem
+        obcaecati similique quos hic libero! Ipsa magni nam dolores facere dolor. Perspiciatis exercitationem, velit
+        reiciendis fugiat aliquam vero, minima qui eaque odit nostrum cumque et perferendis cum ipsa magnam ex, maiores
+        tempore libero possimus laborum accusantium. Similique distinctio, mollitia, numquam amet culpa vero quod sequi
+        magnam alias delectus commodi! Quam ut dicta laboriosam? Libero, consequatur ipsum mollitia molestiae excepturi
+        dolore non ea voluptatibus aut autem porro consectetur necessitatibus distinctio alias, debitis blanditiis
+        officiis, cum explicabo earum praesentium nemo? Aut animi, consequuntur facere sed suscipit fuga tempora quia
+        cupiditate itaque, sapiente dolore impedit, quaerat perspiciatis optio porro? Eveniet, laboriosam nemo ipsa
+        quasi sequi, quos eius vitae sint quod tempore porro cupiditate recusandae facere temporibus distinctio
+        accusantium veritatis ex magnam. Quam odit placeat culpa sed quis maxime repellat veniam et possimus nobis
+        dignissimos minus ab, adipisci laboriosam aperiam id recusandae vitae labore magni eaque fugit quod accusamus.
+        Culpa doloribus nisi ipsum quos aspernatur commodi, quaerat vero quas? At, nulla accusamus? Ab possimus unde aut
+        officiis consectetur cupiditate omnis sed nisi, facilis qui rem numquam amet iste ratione voluptates adipisci.
+        Facere beatae iure iste autem fuga sunt, architecto saepe tenetur magnam, reprehenderit laborum illum recusandae
+        ratione nam rem incidunt! Minima incidunt rem voluptatum aut, deleniti illo veniam ratione. Labore eum ullam
+        saepe numquam molestiae nobis rem libero quo sint. Itaque.
+    </p>
+
+
+    <script>
+
+        let buttons = document.getElementsByTagName("button")
+
+
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener('click', (event) => {
+                console.log(event.target.id)
+                let body = document.getElementsByTagName('body')[0]
+                body.style.backgroundColor = event.target.id
+
+            })
+        }
+
+
+    </script>
+</body>
+
+</html>

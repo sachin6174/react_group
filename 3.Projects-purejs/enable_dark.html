@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="submit">enable dark</button>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat eaque quibusdam eligendi aut numquam modi debitis ex dolor, nisi earum tenetur necessitatibus quam corporis quia minima ducimus impedit praesentium obcaecati. Incidunt aperiam aliquam modi saepe cupiditate repudiandae, optio suscipit provident eum consectetur fugit dolorum repellendus inventore temporibus? Sed molestiae enim a quisquam vitae sint perferendis, exercitationem molestias unde ullam laudantium totam minus saepe reiciendis omnis voluptatum quaerat aliquid ducimus delectus eaque ipsam numquam impedit. Est quaerat totam nobis consequuntur repellat inventore hic repudiandae fugiat necessitatibus ex iste, eius et pariatur earum accusamus ipsum eum aperiam debitis commodi cumque. Porro praesentium enim repellendus eos! Quidem debitis quae consequatur vitae laboriosam, nisi hic commodi saepe mollitia perferendis quo ex eaque ab repudiandae laborum suscipit cupiditate aspernatur dolorem quasi tenetur? Quam voluptatibus, voluptatem consequatur, sapiente blanditiis consectetur officiis minima non fugit sed dicta reprehenderit nostrum voluptatum deserunt inventore aliquam nemo deleniti cupiditate, doloribus nesciunt quidem a. Odio voluptas voluptatibus alias cum esse! Quidem id consequuntur aliquam harum, quo, voluptates perspiciatis accusamus magni nobis eligendi earum reprehenderit est aperiam alias saepe nostrum, ex unde ipsa eaque. Eligendi fugit temporibus quas quisquam, recusandae, nemo nihil consequatur maiores vitae iste dolorem commodi optio! Esse quos aspernatur iste quam ea, vel a laborum doloremque necessitatibus assumenda, ducimus similique cumque temporibus quisquam ad quia quibusdam laudantium vitae quod praesentium, nostrum cum. Impedit ea atque ipsam libero ut neque sequi tempore sed nobis cupiditate repellendus corrupti rem suscipit accusantium rerum laboriosam quod, tenetur quam, quae aperiam illum, harum ipsa eos et. Debitis, placeat impedit sapiente veritatis cum dignissimos fugit eveniet eligendi itaque minus voluptatem atque. Unde inventore commodi, nostrum sint debitis mollitia laborum ratione pariatur, incidunt ad maxime ullam. Facere, sapiente expedita qui veritatis dignissimos quos, ad iste voluptate distinctio velit eos tenetur iure esse officia. Expedita officia odio omnis perspiciatis, aliquam alias quibusdam fugiat incidunt reiciendis natus minus tenetur porro ea laudantium consequatur facere maxime commodi distinctio. Vero voluptatum molestiae repudiandae perspiciatis id saepe, quidem quaerat placeat, illum praesentium pariatur cumque minima cum asperiores modi exercitationem iste rerum quas, sapiente aperiam consectetur ut fugiat sed sint. Laborum ad fuga quibusdam saepe, veniam molestias quis architecto modi distinctio, consequatur natus assumenda reiciendis doloremque ab magni esse? Optio quod corrupti assumenda commodi quia? Doloremque quia ut sit, at fuga placeat facere. Ut fugiat quia maxime, impedit quis, quod, eius iure consectetur aliquid libero hic vel inventore. Asperiores quisquam at nulla eos quasi voluptatum cupiditate corrupti perspiciatis accusamus fugit? A minima autem laboriosam illo perspiciatis veniam nam incidunt ea vero fugiat velit maiores nostrum ullam dolor doloribus explicabo sint unde cum accusamus, nemo at provident iste cumque. Doloremque voluptate aspernatur totam facilis recusandae magnam laboriosam architecto sapiente, deleniti, pariatur dolores illum eum suscipit doloribus eaque vero dolore debitis. Vitae culpa nulla commodi laudantium laboriosam error voluptatibus eum dolore modi possimus ab, sit, porro consectetur. Deserunt eaque, repellendus inventore sit quam aut quos, natus expedita, provident placeat ipsa. Perferendis ipsa soluta obcaecati, nihil saepe veritatis pariatur, dolorum voluptate, at similique reprehenderit facere?</p>
+   <script>
+        let button = document.getElementsByTagName('button')[0]
+        let body = document.getElementsByTagName('body')[0]
+        // let para = document.getElementsByTagName('p')[0]
+
+        button.addEventListener('click',()=>{
+            if(button.innerHTML == 'enable dark'){
+                body.style.backgroundColor = "black"
+                body.style.color = "white"
+                button.innerHTML = "enable white"
+            } else{
+                body.style.backgroundColor = "white"
+                body.style.color = "black"
+                button.innerHTML = "enable dark"
+            }
+        })
+
+
+    </script>
+</body>
+</html>

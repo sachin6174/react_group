@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{
+            background-color: rgb(19, 20, 20);
+        }
+        textarea{
+            background-color: rgb(164, 158, 158);
+        }
+
+        #btn{
+            background-color: rgb(34, 197, 56);
+        }
+        p{
+            background-color: rgb(212, 219, 201);
+            border: solid black;
+            height:50px
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <textarea  id="txt" cols="100" rows="10">7Z56Z8Z6xc/z/xc7xzjfiosdnm,nxznkw4321534t*&%*^%(^*&%&5^%76%^&5Z+7+7+Z+96Z651Z!798Z4dZfjsdfh dsfjhsdkjf sdn jds f fjndsghbsd Zaxk%^&^&*%*&R67zVJvHUF7VF&^ZRR&^Z$&^zr^R^&zFVHVZ&RZ^FZVYrZZ1Z
+</textarea>
+        <br>
+        <input id="query" type="text"> 
+         <br>
+        <input id ="btn" type="button" value="Check" >
+       
+        <input id="remove" type="button" value="remove">
+        <p></p>
+        <!-- <p>myans1</p>
+        <p>myans2</p>
+        <p>myans3</p> -->
+
+    </div>
+
+    <script>
+        let box=document.getElementById('txt');
+        let btn=document.getElementById('btn');
+        console.log(box.value);
+
+        // element1.value="bunty chauhan is a boy"
+
+        /*
+            fucnction ke ander function decleration
+            arrow function
+        */
+        // (a,b)=>{
+
+        // }
+        let query=document.getElementById('query')
+
+        btn.addEventListener('click',()=>{
+            // box.value="dfjgdsfshgfhjdsghgsdfhjhdsf"
+            // console.log(box.value);
+            // console.log(query.value);
+            let mystr=box.value;
+            let que=query.value;
+            
+            // kmp o(n)
+            //
+            let mila=false;
+            for(let i=0;i<mystr.length-que.length+1;i++){
+                let localmilgaya=true;
+                let index=i;
+                for(let j=0;j<que.length;j++){
+                    if(mystr[i+j]!==que[j]){
+                        localmilgaya=false;
+                        break;
+                    }
+                }
+                if(localmilgaya===true){
+
+                    mila=true;
+                    let p=document.getElementsByTagName('p')
+                    p[0].innerHTML=`You Query Found at ${i}`;
+                    break;
+                }
+            }
+            if(mila===false){
+                let p=document.getElementsByTagName('p');
+                p[0].innerHTML="You Query is  Not Found";
+            }
+
+
+
+        });
+
+
+        let removeButton = document.getElementById("remove")
+        
+        removeButton.addEventListener('click',()=>{
+            let arr = ['@','$','!','#','%','^','&','*','(',')','+','/','*']
+            let textGiven = box.value
+            let ans = ""
+
+            for(let i = 0;i < textGiven.length;i++){
+                let char = textGiven.charAt(i)
+                let bool = false
+                for(let i = 0;i < arr.length;i++){
+                    if(char === arr[i]){
+                        bool = true
+                        break;
+                    }
+                }
+                if(bool !== true){
+                    ans += char
+                }
+            }
+            let p=document.getElementsByTagName('p')
+            // console.log(ans)
+            p[0].innerHTML=ans;
+
+        })
+
+
+        
+
+
+
+    </script>
+</body>
+</html>

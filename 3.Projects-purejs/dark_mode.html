@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+        <button id="btn">enable dark mode</button>
+        <p id="mytext">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus fuga officia assumenda eligendi, illum necessitatibus unde, labore quaerat quod suscipit perspiciatis mollitia sapiente quas dolores deserunt iste exercitationem aperiam tenetur minima. Accusamus nulla est quaerat perspiciatis ex quos repellat? Voluptatibus magnam suscipit praesentium. Nisi, mollitia. Incidunt fugiat quaerat quam, saepe accusamus voluptatibus officiis impedit provident minima vel doloribus ab autem? Illo officiis libero voluptatibus odio neque laudantium. Temporibus, fuga! Deserunt, facere magni. Nisi quae velit doloribus consectetur animi neque minus vero itaque quos soluta voluptatibus quia rerum officiis blanditiis dolor est reprehenderit enim iusto laboriosam accusantium dolores nemo ex, eius tenetur! Et, eveniet tenetur quia suscipit impedit quis odit corporis saepe tempora placeat, mollitia commodi, ea consectetur architecto? Recusandae id quia quisquam earum voluptatum, consequatur quas voluptates ratione nam dolorum, rerum molestias quibusdam fugit ea totam. Laboriosam ad quos quas deleniti eius odit magnam, nostrum sequi harum quibusdam vero! Aspernatur maiores vitae quo fugit eum magni accusamus odio a distinctio nesciunt veritatis eligendi est, quidem tenetur quae accusantium ab? Porro, facere dolorem! Asperiores voluptas provident consectetur, deserunt tempora at enim iste reiciendis autem dolores vel velit alias aliquid non numquam veritatis porro repudiandae a commodi consequuntur, eveniet molestiae corporis ipsum. Quasi voluptates adipisci voluptatem aliquid ad deleniti enim possimus libero beatae illo reprehenderit dolorem soluta iusto placeat facilis magni expedita pariatur repellat fugit delectus, esse vel quos atque nesciunt! Officia molestiae alias aliquid, fugiat exercitationem repellat repudiandae corporis ipsa. Minus accusantium culpa, voluptates voluptas quidem tempore recusandae dicta esse adipisci, rem, eligendi necessitatibus ab minima. Recusandae modi optio, provident qui sunt, dolorum reprehenderit accusamus in aspernatur consequatur nesciunt nemo ipsa laboriosam inventore at explicabo dolore veritatis numquam, distinctio veniam porro repellat eos vitae! Accusantium blanditiis iste magnam maxime vero! Beatae, perspiciatis saepe? Officia nulla consequuntur non. Ratione distinctio assumenda, nemo enim impedit nihil ducimus eveniet repellendus placeat perferendis dolorem quasi voluptatum reprehenderit, dolorum nesciunt! Repellendus itaque, iste repellat nobis veniam quas laudantium voluptatum doloribus, nisi cupiditate vitae? Consequuntur, voluptates deserunt! Voluptas tempora consectetur nihil quod ut nobis beatae consequatur vel a ex. Doloremque expedita aperiam mollitia iure iusto ex, perferendis nam quasi aliquam. Doloremque natus pariatur accusantium aliquam tempore dolor autem explicabo velit nostrum molestiae. Qui quasi maxime ipsum incidunt laboriosam nesciunt consequuntur iusto, sunt quisquam, fuga voluptates. Ut repellendus, autem maiores animi eius eaque, consectetur accusantium nesciunt reiciendis quia voluptatibus explicabo architecto magni. Atque vero ipsam soluta laborum fugit, sed eius rem ab? Expedita natus nam ullam qui optio error dignissimos sapiente earum unde facilis commodi mollitia veniam velit quam, impedit, saepe voluptatem quaerat accusamus est id sed, in recusandae distinctio nihil! Rem nobis natus consequuntur consectetur autem similique voluptatibus dicta, id qui voluptates in quidem quo quaerat aperiam labore vitae, hic veniam dolorem tempore et. Consectetur cupiditate quod in quaerat ratione velit, voluptatum ducimus alias enim, architecto error autem molestiae labore quidem voluptate? Aut labore distinctio minus quos quae optio, cum inventore excepturi quas, voluptatibus totam magni incidunt perspiciatis natus. Enim labore, vitae corrupti ea molestiae quos dicta.</p>
+
+        <script>
+            let btn = document.getElementById("btn");
+
+            btn.addEventListener('click', ()=>{
+                
+
+                let body = document.getElementsByTagName('body')[0]
+                if(body.style.backgroundColor=="black"){
+                    //console.log("i am in if")
+                    body.style.backgroundColor="white"
+                    body.style.color="black"
+                    btn.innerHTML="enable dark mode"
+                }else{
+                    body.style.backgroundColor="black"
+                    //console.log("i amm in else")
+                    // body.style.color="white"
+                    body.style.color="white";
+                    btn.innerHTML="enable light mode"
+                }
+            })
+
+
+        </script>
+
+</body>
+</html>

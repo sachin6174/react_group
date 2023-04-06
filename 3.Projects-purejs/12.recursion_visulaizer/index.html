@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .stack {
+        background-color: rgb(225, 218, 231);
+        display: flex;
+        width: 200px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 3px;
+      }
+      .flexcon {
+        display: flex;
+        width: 140px;
+        height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stack"></div>
+
+    <script>
+      class Stack {
+        //constructor
+        constructor() {
+          this.data = [];
+          this.data.length = 4;
+          this.nextIndex = 0;
+          this.capacity = 4;
+        }
+        size() {
+          return this.nextIndex;
+        }
+
+        isEmpty() {
+          return this.nextIndex == 0;
+        }
+
+        // insert element
+        push(element) {
+          if (this.nextIndex == this.capacity) {
+            this.data.length = 2 * this.capacity;
+            this.capacity *= 2;
+          }
+          this.data[this.nextIndex] = element;
+          this.nextIndex++;
+        }
+
+        // delete element
+        pop() {
+          if (this.isEmpty()) {
+            console.log("Stack is empty ");
+            return null;
+          }
+          this.nextIndex--;
+          return this.data[this.nextIndex];
+        }
+        top() {
+          if (this.isEmpty()) {
+            console.log("Stack is empty ");
+            return null;
+          }
+          return this.data[this.nextIndex - 1];
+        }
+      }
+
+      let order = 0;
+      let stack = document.getElementsByClassName("stack")[0];
+      function createActivationRecord(n, pos) {
+        let activationRecord = document.createElement("div");
+        activationRecord.setAttribute("class", "flexcon");
+        activationRecord.style.order = `${order--}`;
+        activationRecord.style.border = "1px solid blue";
+        activationRecord.style.padding = "3px";
+
+        let nval = document.createElement("span");
+        nval.style.backgroundColor = "lightgreen";
+        nval.innerHTML = n;
+        nval.style.width = "20px";
+        nval.style.border = "5px solid grey";
+
+        let fibn1 = document.createElement("span");
+        fibn1.style.backgroundColor = "pink";
+        fibn1.style.width = "50px";
+        fibn1.style.border = "5px solid";
+        fibn1.innerHTML = `fib(${n - 1})`;
+
+        let fibn2 = document.createElement("span");
+        fibn2.style.backgroundColor = "red";
+        if (pos == "right") {
+          fibn2.innerHTML = `fib(${n - 2})`;
+        }
+        if (n == -1) {
+        }
+        fibn2.style.border = "5px solid grey";
+        fibn2.style.width = "50px";
+
+        activationRecord.appendChild(nval);
+        activationRecord.appendChild(fibn1);
+        activationRecord.appendChild(fibn2);
+
+        return activationRecord;
+      }
+
+      let callno = 0;
+      function fib(n, pos) {
+        callno++;
+
+
+        // function remover(){
+        //   setTimeout(()=>{
+        //     stack.removeChild();
+        //   },callno*500)
+        // }
+
+        if (n <= 1) {
+          // remover();
+          return n;
+        }
+        function adder() {
+          setTimeout(() => {
+            let activationRecordC = createActivationRecord(n, pos);
+            stack.appendChild(activationRecordC);
+          }, callno * 500);
+        }
+        adder();
+        let fibn_1 = fib(n - 1, "left");
+        let fibn_2 = fib(n - 2, "right");
+
+        remover();
+        return fibn_1 + fibn_2;
+      }
+
+      let num = 4;
+      let mainfun = document.createElement("div");
+      mainfun.innerHTML = `fib(${num})`;
+      mainfun.style.backgroundColor = "hotpink";
+      mainfun.style.display = "inline-block";
+      mainfun.style.width = `150px`;
+      mainfun.style.border = `2px solid `;
+      mainfun.style.order = +1;
+      stack.appendChild(mainfun);
+      let ans = fib(num);
+
+      setTimeout(() => {
+        let numOfCall = document.createElement("div");
+        numOfCall.innerHTML = `Number of Calls: ${callno}`;
+        numOfCall.style.order = `${-1 * callno}`;
+        numOfCall.style.border = ` 2px solid white`;
+        stack.appendChild(numOfCall);
+      }, callno * 500);
+    </script>
+  </body>
+</html>

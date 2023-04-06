@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="text">👅Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam magnam, dolorem assumenda facilis pariatur ipsa enim nostrum vero libero vel quod earum deserunt eveniet fuga suscipit rerum doloribus, repellat corrupti?😂</p>
+    <p id="put"></p>
+
+
+    <script>
+
+        let text=document.getElementById('text').innerHTML
+        //let arr;
+        let put= document.getElementById('put')
+
+        let i=0;
+        let stop=setInterval(()=>{
+            //let old = put.innerHTML;
+            put.innerHTML=put.innerHTML+text[i]
+            i++;
+            if(text.length==i){
+                clearInterval(stop)
+            }
+        },150)
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <label for="rows">Put Number Of Rows</label>
+        <input value="3" id='row' name ="rows" type="number">
+        <br>
+        <br>
+        <label for="columns">Put Number Of Columns</label>
+        <input value="3" id='column' name="columns" type="number">
+        <br>
+        <br>
+        <button id="generate">Generate Matrix</button>
+    </div>
+    
+    <script>
+        let generatebtn=document.getElementById('generate')
+        let rows=document.getElementById('row').value            
+        let columns=document.getElementById('column').value
+        //inmput tag values are recieved using valuep property
+
+        generatebtn.addEventListener('click',()=>{
+            console.log(rows,columns)
+            let mytable=document.createElement('table')
+
+            for(let i=0;i<rows;i++){
+                let tablerow=document.createElement('tr')
+                for(let j=0;j<columns;j++){
+                    let cell=document.createElement('td')
+                    let textarea =  document.createElement('textarea')
+                    textarea.type='number'
+                    textarea.id=`${i}${j}`
+                    textarea.rows='2'
+                    textarea.cols='2'
+                    textarea.style.fontSize='25px'
+                    cell.appendChild(textarea)
+                    tablerow.appendChild(cell)
+                }
+                mytable.appendChild(tablerow)
+            }
+            let body = document.getElementsByTagName('body')[0]
+            body.appendChild(mytable)
+            let calclatebutton=document.createElement('button')
+            calclatebutton.innerHTML='generate inverse'
+            body.appendChild(calclatebutton)
+
+
+            calclatebutton.addEventListener('click',()=>{
+                for(let i=0;i<rows;i++){
+                    for(let j=0;j<columns;j++){
+                        let mycell=document.getElementById(`${i}${j}`).value
+                        console.log(mycell)
+                    }
+                }
+
+            })
+
+            
+        })
+    </script>
+</body>
+</html>

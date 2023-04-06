@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="btn">enable dark</button>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore, aliquid consectetur, suscipit iste beatae et officiis vitae eius unde saepe labore similique maxime magnam cum optio quibusdam laudantium dolor modi minima deleniti. Eaque similique placeat distinctio aperiam, officiis iure nesciunt adipisci pariatur ad deserunt ea tenetur eum laborum voluptates minima est unde? Necessitatibus officiis dicta possimus dolorum eum nam, explicabo eligendi quasi omnis, doloribus quod perferendis tempore saepe consequatur quos ex illum a? Eligendi dolor doloremque ipsa ullam cupiditate officiis, adipisci odio voluptatem culpa fuga. Perferendis, nam repellat minima corporis ab magnam aspernatur suscipit voluptates illum id dolorem earum cumque, molestiae laudantium, labore error rem ipsa explicabo architecto dolorum voluptatibus. Quisquam excepturi modi fugiat, ab quasi, magnam, id ratione mollitia vitae atque doloribus labore eveniet. Nesciunt dicta consequatur eos, doloremque similique architecto rem recusandae voluptatibus ducimus rerum, vel nemo ut quaerat nostrum perferendis excepturi aperiam eum, mollitia non. Ad nihil rem quibusdam sint, nemo voluptates totam minus fugit nostrum optio praesentium perferendis necessitatibus eos velit aliquam numquam enim sunt quis dolorem eaque blanditiis provident, commodi ducimus quae! Ea ut quo odio est quisquam. Architecto, reiciendis! Eaque voluptas cupiditate obcaecati beatae optio cum tempore rem, itaque repellendus saepe eos facilis minima non odio ducimus quisquam iste quos sed quae architecto eligendi. Odit nihil veniam fuga? Dolor, voluptatum impedit numquam consequatur reiciendis et incidunt rerum molestiae nobis deleniti ex totam vel iure? Delectus, architecto dolore! Suscipit sunt iusto minus expedita dolorem odio, iste sequi, quaerat labore necessitatibus, amet sapiente blanditiis! Maiores, natus a sunt dolor facilis odit, reiciendis cum ipsa quos dolorem laboriosam commodi ducimus ratione nostrum, nihil ut! Doloribus rem voluptatem earum reprehenderit culpa deleniti quae aliquid laboriosam aut modi porro ipsa molestias consequuntur, cumque repudiandae unde hic explicabo atque magnam sequi! Repudiandae vitae pariatur, laboriosam fugit quibusdam voluptatibus officiis nam temporibus reiciendis quisquam, neque voluptates voluptas non impedit? Eaque asperiores sint sunt consequatur. Autem eaque maxime asperiores accusantium, adipisci vero id distinctio ipsam doloribus quasi, veniam fugit illum dolor ex modi assumenda cumque nemo! Possimus error illo, optio commodi natus harum sapiente saepe incidunt quam explicabo facere autem ad vitae dignissimos laborum modi dolore sit quas a neque facilis iusto similique mollitia. Earum ab, eveniet quis possimus excepturi totam qui doloremque consequuntur! Consectetur, excepturi! Earum quisquam optio accusantium voluptatibus sequi iusto harum rem ipsum aut. Illo sed atque odio, fugit, iure dolores doloremque obcaecati quisquam suscipit eum sunt unde. Beatae tenetur vitae deserunt quo distinctio harum quidem aperiam doloribus dolore nam pariatur ipsum, accusantium quos provident repellat consequuntur rem animi, doloremque maiores sed veritatis dolores modi error ipsam. Vitae eos placeat, earum, vel laudantium impedit tempore reprehenderit molestiae laboriosam, repellendus quasi ullam? Accusamus rem veritatis aspernatur blanditiis eaque nihil animi, nemo alias enim dolores, libero maxime deserunt eum earum, eius officia modi? Voluptatem, ea? Cum voluptatibus ullam vero iure id iste. Iusto ut reiciendis quod tenetur voluptas ipsam veniam incidunt et vero optio deserunt laboriosam similique, corrupti alias hic beatae quas? Veritatis, laboriosam dicta? Eveniet corporis inventore ducimus voluptatem obcaecati.</p>
+    <script>
+        let btn=document.getElementById('btn')
+        btn.addEventListener('click',()=>{
+            let body=document.getElementsByTagName('body')[0]
+            if(body.style.backgroundColor=="black"){
+                body.style.backgroundColor="white";
+                body.style.color="black";
+                btn.innerHTML="enable dark";
+                
+            }else{
+                body.style.backgroundColor="black";
+                body.style.color="white";
+                btn.innerHTML="enable light"
+            }
+           
+        })
+    </script>
+</body>
+</html>
