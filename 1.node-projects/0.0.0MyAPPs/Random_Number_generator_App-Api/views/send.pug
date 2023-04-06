@@ -1,0 +1,34 @@
+<!-- //- \render-html-file-expressjs\ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Random Number Generator</title>
+</head>
+
+<body>
+  <header>
+    <h1>Random Number Generator</h1>
+  </header>
+   <div class="return">
+    <h1 class="randomNumEl">#{r_no} is a random no between #{f_no} and #{s_no}.</h1>
+  </div>
+  <div class="btn">
+    <button class="generateBtn"><a href="http://localhost:3500/">Make New Request</a></button>
+  </div>
+  
+  <div class="btn">
+    <button class="generateBtn" onclick="location.reload()">Generate A New Number In The Same Range</button>
+  </div>
+  
+  <script src="app.js"></script>
+  <style src="random.js"></style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="chart.js"></script>
+</body>
+
+</html>

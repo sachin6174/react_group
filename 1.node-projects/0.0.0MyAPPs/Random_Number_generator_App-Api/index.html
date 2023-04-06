@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="icon.png">
+  <title>Random Number Generator</title>
+</head>
+
+<body>
+  <header>
+    <h1>Random Number Generator</h1>
+  </header>
+
+  <form action="/" method="post">
+    <label>From:</label><br>
+    <input type="number" class="fromNum" placeholder="First_no" name="num1"><br>
+    <label>To:</label><br>
+    <input type="number" class="toNum" name="num2" placeholder="Second_no"><br>
+    <button type="submit" class="generateBtn" name="submit">Generate</button>
+  </form>
+  </div>
+  <div class="api">
+    <h1 class="randomNumEl">Api Details And Available EndPoints</h1>
+    <hr>
+    <ul type="none">
+      <b>
+        <li class="leftalign">http://localhost:3500/jvn?num1=10&num2=15</li>
+      </b>
+      <b>
+        <li class="leftalign">http://localhost:3500/hrng?num1=10&num2=15</li>
+      </b>
+      <b>
+        <li class="leftalign">http://localhost:3500/trng?num1=10&num2=15</li>
+      </b>
+      <b>
+        <li class="leftalign">http://localhost:3500/jsmathrandom?num1=10&num2=15</li>
+      </b>
+      <b>
+        <li class="leftalign">http://localhost:3500/mixed?num1=10&num2=15</li>
+      </b>
+      <b>
+        <li class="leftalign">http://localhost:3500/about</li>
+      </b>
+      <b>
+        <form action="http://localhost:3500/about">
+          <input type="submit" value="About" />
+      </form>
+      </b>
+    </ul>
+  </div>
+
+  <script src="app.js"></script>
+  <style src="random.js"></style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="chart.js"></script>
+</body>
+
+</html>
