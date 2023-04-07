@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="/" method="post" class="flex flex-col gap-3 px-4">
+      <div>
+        <label for="name" class="font-bold font-sans">Name:</label>
+        <input name="name" type="text" class="bg-black text-white rounded-xl px-2" />
+      </div>
+      <div>
+        <label for="age" class="font-bold font-sans">Age:</label>
+        <input name="age" type="text" class="bg-black text-white rounded-xl px-2"/>
+      </div>
+
+      <div>
+        <label for="class" class="font-bold font-sans">Class:</label>
+        <input name="Class" type="text" class="bg-black text-white rounded-xl px-2"/>
+      </div>
+
+      <button type="submit" class="bg-blue-800 text-white font-bold w-40 rounded-lg mx-4">generate-cretificate</button>
+    </form>
+  </body>
+</html>
