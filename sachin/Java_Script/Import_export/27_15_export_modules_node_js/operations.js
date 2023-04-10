@@ -1,7 +1,9 @@
-exports.add = function(a, b){
+module.exports.add = function(a, b){
     return  a + b;
 }
 
 exports.multiply = function(a, b){
     return a * b;
 }
+exports.chandan = "hello";
+// let sachin="k"
