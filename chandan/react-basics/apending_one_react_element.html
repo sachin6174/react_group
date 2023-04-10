@@ -17,9 +17,10 @@
 
 </head>
 <body>
-    <div class="h-screen bg-blue-400" id="h1">
-        
-    </div>
+    <div class="h-screen bg-blue-400" id="root">
+        Not Rendered
+    </div>   
+
     <script>
         //WITH THE HELP OF PURE JS
         // document.getElementById('h1').innerHTML="hello chandan";
@@ -28,11 +29,15 @@
         // $("#h1").text("hello sachin");
 
         //WITH THE HELP OF REACT
-        let heading=ReactDOM.createRoot(document.getElementById('h1'));
+        // earlier code will be replaced
 
-        let myElement=React.createElement('h2',{id:"my_head",className:"cls"},"hello react again");
+        let root1=ReactDOM.createRoot(document.getElementById('root'));
 
-        heading.render(myElement);
+        let myElement1=React.createElement('h2',{id:"my_head",className:"cls"},"hello react again");
+        let myElement2=React.createElement('h2',{id:"my",className:"cls"},"completely fine1"); 
+        let myElement3=React.createElement('h2',{id:"myi",className:"cls"},"completely fine2"); 
+        let div1= React.createElement("div",{},[myElement1,myElement2,myElement3]);
+        root1.render(div1);
 
     </script>
 </body>
