@@ -19,9 +19,36 @@ app.get('/', function (req, res) {
 })
 
 app.post("/",function (req, res) {
+  console.log(req.body);
   
+  let oprator=JSON.stringify(req.body);
+  let arr=oprator.split(',');
+  console.log(arr);
+  if(arr[2][1]==='a'){
+    let result={ans:parseInt(req.body.num1)+parseInt(req.body.num2),key:"additon"}
+
+      res.render("index.pug", result);
+  }else if(arr[2][1]==='s'){
+    let result={ans:parseInt(req.body.num1)-parseInt(req.body.num2),key:"subtraction"}
+
+    res.render("index.pug", result);
+  }else if(arr[2][1]==='m'){
+
+    let result={ans:parseInt(req.body.num1)*parseInt(req.body.num2),key:"multiplication"}
+      res.render("index.pug", result);
+
+
+  }else if(arr[2][1]==='d'){
+
+    let result={ans:parseInt(req.body.num1)/parseInt(req.body.num2),key:"division"}
+
+      res.render("index.pug", result);
+
+  }
+
+  //WE HAVE TO CHECK HOW THE OPERATORS IS COMMING IN KEY
   
-  for(key in req.body){
+  /*for(key in req.body){
     if(key=="add"){
       let result={ans:parseInt(req.body.num1)+parseInt(req.body.num2),key:"additon"}
 
@@ -40,6 +67,7 @@ app.post("/",function (req, res) {
       res.render("index.pug", result);
     }
   }
+  */
  
   
 })
