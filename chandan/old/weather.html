@@ -1,42 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>weather</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>waether</title>
-</head>
+  <body class="bg-blue-300">
+    <div class="flex items-center justify-center h-screen">
+      <div>
+        <input
+          id="citi"
+          placeholder="enter-city"
+          value=""
+          type="text"
+          class="bg-slate-500 px-2 py-1 font-serif font-bold rounded-xl"
+        />
+        <button
+          id="btn1"
+          class="bg-black text-white font-serif px-2 py-1 rounded-md m-3"
+        >
+          search</button
+        ><br />
 
-<body>
-    <input id="citi" placeholder="enter-city" value="delhi" type="text" />
-    <button id="btn1">search</button>
-    <div id="result"></div>
-    <p id="demo"></p>
+        <div id="result"></div>
+        <p
+          class="bg-black text-white font-serif px-2 py-1 rounded-md"
+          id="demo"
+        ></p>
+      </div>
+    </div>
 
     <script>
+      document.getElementById("btn1").addEventListener("click", () => {
+        let city = document.getElementById("citi").value;
+        fetch(
+          `https://api.openweathermap.org/data/2.5/weather?q=${city}&unit=metric&appid=841f8d1bd9510f89725f5741f32ee238`
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            
+            let temp = data.main.temp - 273.15;
+            let temp_rounded_of = temp.toFixed(2);
 
-// `https://api.openweathermap.org/data/2.5/weather?q=${city}&unit=metric&appid=841f8d1bd9510f89725f5741f32ee238`
-        document.getElementById('btn1').addEventListener('click',()=>{
-
-            let city=document.getElementById('citi').value;
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&unit=metric&appid=841f8d1bd9510f89725f5741f32ee238`).then((res)=> res.json()).then((data)=>{
-            // const myjson=JSON.stringify(data);
-            // console.log(data[0]);
-
-            // let myobject=JSON.parse(data)
-            // console.log(myobject);
-            document.getElementById('demo').innerHTML=`temp of ${city} is ${data.main.temp-273.15} &deg;C`;
-            // document.getElementById('result').innerHTML=
+            let p1=document.createElement('p');
+            p1.innerHTML = `temp of ${city} is ${temp_rounded_of} &deg;C <br> hi!!`;
            
+            document.getElementById('demo').appendChild(p1);
+            document.getElementById('demo').appendChild(p2);
 
-            console.log((data.main.temp-273.15))
-        }).catch((err)=>{
-            document.getElementById('demo').innerHTML="city not exist or network error";
-        })
-        })
-        
+          })
+          .catch((err) => {
+            document.getElementById("demo").innerHTML =
+              "city not exist or network error";
+          });
+
+          document.getElementById('citi').innerHTML="";
+      });
     </script>
-</body>
-
+  </body>
 </html>
