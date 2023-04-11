@@ -2,3 +2,8 @@
 // if we have to apply event listener to multiple items use query selectoe to grab// find out why not working on getElementById
 // key keyword working dont know why
 // can we use multiple roots in  app
+ntents.c10c11b1.js:1 Uncaught TypeError: Cannot read properties of undefined (reading 'getInlineAnchor')
+    at contents.c10c11b1.js:1:75818
+    at contents.c10c11b1.js:1:76991
+    at contents.c10c11b1.js:1:77701
+(  solve this)
