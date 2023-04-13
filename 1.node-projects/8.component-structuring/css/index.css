@@ -1,0 +1,36 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+.seperate{
+    border: solid blueviolet 3px;
+    display: flex;
+    justify-content: space-between;
+    /* justify-content: center;horizontal centring */
+    padding: 5px;
+}
+.left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;/*verical centring*/
+
+    justify-content: center;
+}
+
+.right{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.btn{
+    height: 20px;
+    margin-right: 5px;
+    margin-left: 10px;
+}
+.user{
+    margin-right: 10px;
+}
+.lbl{
+    margin-right: 10px;
+    margin-left: 10px;
+}
