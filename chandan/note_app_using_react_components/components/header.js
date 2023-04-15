@@ -12,7 +12,7 @@ module.exports.Header=()=>{
                 </ul>
             </div>
             <div className="right mx-40">
-                <span className="user bg-gray-200 rounded-xl mx-2 text-black font-serif font-extrabold">UserName</span>
+            <span className="user bg-gray-200 rounded-xl mx-2 text-black font-serif font-extrabold">UserName</span>
                 <button className ="btn bg-gray-200 rounded-xl mx-2 text-black font-serif font-extrabold">Logout</button>
             </div>
         </header>
