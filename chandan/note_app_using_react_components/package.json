@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "parcel": "^2.8.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "init": "^0.1.2",
+    "npx": "^10.2.2",
+    "process": "^0.11.10"
+  }
+}
