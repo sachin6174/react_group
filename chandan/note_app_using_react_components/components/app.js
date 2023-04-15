@@ -5,10 +5,12 @@ import  {Body} from "./body"
 module.exports.App =()=>{   
     return(
         <>
-            <Header/>
+                <Header/>
             < Body/>
             <Footer/>
        </>
     )
 }
+
+
 
