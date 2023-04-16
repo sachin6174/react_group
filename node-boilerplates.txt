@@ -1,5 +1,6 @@
 // jquery cdn
 https://code.jquery.com/jquery-3.6.4.slim.min.js
+
 //view.js cdn<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
 

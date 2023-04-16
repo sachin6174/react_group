@@ -1,8 +1,8 @@
-import {NoteList} from "./notesList"
+import {NoteListComponent} from "./notesList"
 module.exports.BodyComponent=()=>{
         return (
             <div>
-                <NoteList/>
+                <NoteListComponent/>
             </div>
         )
     }

@@ -3,7 +3,7 @@ let items=[]
 for(let i=0;i<8;i++){
     items.push(i)
 }
-module.exports.NoteList=()=>{
+module.exports.NoteListComponent=()=>{
     return (
         <div>
             {

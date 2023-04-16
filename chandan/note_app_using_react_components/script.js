@@ -4,4 +4,4 @@ import {AppLayoutComponent} from "./components/appLayout"
 
 let root = ReactDOM.createRoot(document.getElementById("root"))
 
-root.render(AppLayoutComponent())
+root.render(<AppLayoutComponent/>)

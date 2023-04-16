@@ -5,13 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="card.css">
     <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
 </head>
 <body>
+  <header  class="header">
+    <div  class ="left">
+        <img class ="logo" src="https://services.garmin.com/appsLibraryBusinessServices_v0/rest/apps/abae37aa-df56-47e8-91fd-8b85ad85cba0/icon/935e4a06-3986-4186-8a7e-3bf429ac079e" alt="Notes Logo"/>
+        <span>Notes App</span>
+    </div>
+    <div>
+        <label  htmlFor="topic">Topic:</label>
+        <input placeholder="enter-topic" name="topic" type="text"/>
+        <label   class="lbl " htmlFor="desc">Description:</label>
+        <input placeholder="enter-desc"  name="desc" type="text"/>
+        <button class="btn"  >Add</button>
+        <button class="btn" >Clear Notes</button>
+    </div>
+    <div class ="right">
+        <span >{`Hi ${props.user_name}`}</span>
+        <button class="btn" >Logout</button>
+    </div>
+</header>
     <div class="cards">
 
-        <div class="card">
+        <!-- <div class="card">
           <div class="card__image-holder">
             <img class="card__image" src="https://source.unsplash.com/300x225/?wave" alt="wave" />
           </div>
@@ -35,9 +53,9 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       
-        <div class="card">
+        <!-- <div class="card">
           <div class="card__image-holder">
             <img class="card__image" src="https://source.unsplash.com/300x225/?beach" alt="beach" />
           </div>
@@ -61,9 +79,9 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       
-        <div class="card">
+        <!-- <div class="card">
           <div class="card__image-holder">
             <img class="card__image" src="https://source.unsplash.com/300x225/?mountain" alt="mountain" />
           </div>
@@ -87,7 +105,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       
         <div class="card">
           <div class="card__image-holder">
@@ -218,7 +236,7 @@
             </div>
           </div>
         </div>
-      
+<!--       
         <div class="card">
           <div class="card__image-holder">
             <img class="card__image" src="https://source.unsplash.com/300x225/?desert" alt="desert" />
@@ -243,12 +261,12 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       
       </div>
       
       
       
-   <script src="a.js"></script>   
+   <script src="card.js"></script>   
 </body>
 </html>
