@@ -14,5 +14,15 @@
   },
   "devDependencies": {
     "process": "^0.11.10"
-  }
+  },
+  "name": "note_app_using_react_components",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
