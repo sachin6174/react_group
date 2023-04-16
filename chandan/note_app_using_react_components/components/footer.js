@@ -1,5 +1,7 @@
-module.exports.Footer =()=>{
-    return (
-        <h1>Footer</h1>
-    )
-}
+module.exports.FooterComponent = () => {
+  return (
+    <footer className="foot">
+      <p>&copy; 2023 NotesApp . All rights reserved.</p>
+    </footer>
+  );
+};

@@ -1,9 +1,8 @@
-
-import NoteList from "./notesList"
-module.exports.Body=()=>{
-    return (
-        <div>
-            <NoteList/>
-        </div>
-    )
-}
+import {NoteList} from "./notesList"
+module.exports.BodyComponent=()=>{
+        return (
+            <div>
+                <NoteList/>
+            </div>
+        )
+    }

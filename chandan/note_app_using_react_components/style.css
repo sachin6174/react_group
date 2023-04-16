@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    margin: 5px;
+}
+body{
+    background-color: aquamarine;
+}
+.give-border{
+    border: solid 3px salmon;
+    margin: 10px;
+    background-color: rgb(212, 171, 142);
+}
+.header{
+    border: solid 3px rgb(82, 4, 62);
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(169, 169, 192);
+    padding: 5px;
+}
+.left{
+    display: flex;
+
+}
+.right{
+    display: flex;
+
+}
+.foot{
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+    border: solid 3px rgb(82, 4, 62);
+    background-color: rgb(169, 169, 192);
+    padding: 5px;
+}
+.logo{
+    height: 30px;
+}
+.btn{
+    height: 20px;
+}

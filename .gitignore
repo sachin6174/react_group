@@ -10,3 +10,6 @@ heroku-deployment/.git
 heroku-deployment/.gitignore
 
 /C:/Users/chand/Desktop/react_group/chandan/basic-structure-react/node_modules
+/chandan/note_app_using_react_components/.parcel-cache
+/chandan/note_app_using_react_components/dist
+/chandan/note_app_using_react_components/node_modules

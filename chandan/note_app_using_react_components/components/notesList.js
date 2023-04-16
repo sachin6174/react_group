@@ -1,15 +1,18 @@
-
-import { Sigle_note } from "./singleNote";
+import { SingleNoteComponent } from "./singleNote";
+let items=[]
+for(let i=0;i<8;i++){
+    items.push(i)
+}
 module.exports.NoteList=()=>{
-
     return (
         <div>
-            <Sigle_note title="title1" description="desc1"/>
-            <Sigle_note title="title2" description="desc2"/>
-            <Sigle_note title="title3" description="desc3"/>
-            <Sigle_note title="title4" description="desc4"/>
-            <Sigle_note title="title5" description="desc5"/>
-
+            {
+                items.map((item, index) =>{
+                    return (
+                        <SingleNoteComponent  topic={`topic ${index}`} desc={`desc ${index}`}/>
+                    )
+                })
+            }
         </div>
     )
 }
