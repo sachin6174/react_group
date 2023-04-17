@@ -83,7 +83,7 @@
             
             <a id="visit-this"></a>
         </div>
-        <div id="main" class="m-1 rounded-sm bg-blue-400 text-black p-2 text-xl font-bold"></div>
+        <div id="main" class="m-2 rounded-sm bg-blue-400 text-black p-2 text-xl font-bold grid md:grid-cols-4 gap-4 devide-x divide-gray-400"></div>
     </div>
 
 
@@ -131,7 +131,13 @@
                             let topic = current_user.topic[i];
                             let description = current_user.description[i]
                             let para = document.getElementById("main");
-                            para.innerHTML += `<div id="${i}_${current_user_name}_div" >topic is :  ${topic} <br/> description is :  ${description} <br/> <button class="del" id="${i}">Delete</button><div><hr/>`;
+
+                            let newdiv=document.createElement('div');
+                            newdiv.id=`${i}_${current_user_name}_div`;
+                            newdiv.innerHTML=`topic is :  ${topic} <br/> description is :  ${description} <br/> <button class="del" id="${i}">Delete</button><div><hr/>`;
+                                newdiv.style.margin="10px"
+                                para.appendChild(newdiv);
+                            // para.innerHTML += `<div id="${i}_${current_user_name}_div" >topic is :  ${topic} <br/> description is :  ${description} <br/> <button class="del" id="${i}">Delete</button><div><hr/>`;
                         }
                     }
 
