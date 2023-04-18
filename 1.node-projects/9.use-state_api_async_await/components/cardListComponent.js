@@ -24,7 +24,7 @@ let  SingleCardComponent=(props)=>{
 let fetched_data;
 let inOrder = async () => {
   await fetch(API_URL)
-    .then((response) => response.json())
+    .then((response) =>   response.json())
     .then((data) => {
       fetched_data = data;
     })
@@ -47,6 +47,6 @@ let inOrder = async () => {
 
 }
 
-inOrder();
+export default {fetched_data};
 
 
