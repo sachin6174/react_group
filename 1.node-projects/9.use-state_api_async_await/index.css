@@ -1,0 +1,10 @@
+.my-list{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.card{
+    background-color: black;
+    color: white;
+
+}
