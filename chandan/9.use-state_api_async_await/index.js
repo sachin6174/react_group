@@ -87,16 +87,7 @@ let inOrder = async () => {
             )
         }
 
-        AppLayoutComponent=()=>{
-
-            return (
-                <>
-                    <CardListComponent />
-                </>
-            )
-        }
-        
-
+       
         root.render(<CardListComponent />)
 
         
