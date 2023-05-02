@@ -7,17 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>login-page</title>
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
-
+    <link rel="stylesheet" href="index2.css">
     <style>
         .del {
             color: aliceblue;
-            background-color: black;
+            background-color: blue;
             border: 2px white solid;
+            border-radius: 0.225rem;
         }
+        .apended{
+           background-color: black;
+           color: white;
+           padding: 1rem;
+           border-radius: 1rem;
+           
+        }
+        
 
-        #to_show {
+        /* #to_show {
             visibility: hidden;
-        }
+        } */
     </style>
 </head>
 
@@ -65,7 +74,7 @@
                 <input id="description-value" class="font-bold border-solid border-2 rounded-xl text-black px-1"
                     type="text" placeholder="enter-description" />
             </div>
-            <button id="add" class="bg-white font-bold font-serif text-black mt-8 w-20 h-6 rounded-xl">
+            <button id="add" class="add bg-green-600 font-bold font-serif text-black mt-8 w-20 h-6 rounded-xl">
                 ADD
             </button>
 
@@ -135,7 +144,8 @@
                             let newdiv=document.createElement('div');
                             newdiv.id=`${i}_${current_user_name}_div`;
                             newdiv.innerHTML=`topic is :  ${topic} <br/> description is :  ${description} <br/> <button class="del" id="${i}">Delete</button><div><hr/>`;
-                                newdiv.style.margin="10px"
+                                newdiv.style.margin=`10px`
+                                newdiv.className="apended";
                                 para.appendChild(newdiv);
                             // para.innerHTML += `<div id="${i}_${current_user_name}_div" >topic is :  ${topic} <br/> description is :  ${description} <br/> <button class="del" id="${i}">Delete</button><div><hr/>`;
                         }
