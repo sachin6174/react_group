@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id = "ourhead">sachin</h1>
+
+    <label for="myin">search queary</label>
+    <input id="in" name="myin" type="text">
+    <button id="btn">add</button>
+
+    <script>
+         document.getElementById("ourhead").innerHTML = "Dsdfsadf"
+        
+        let btn = document.getElementById("btn")
+        btn.addEventListener("click",function(){
+            let input1 = document.getElementById("in").value 
+            document.getElementById("ourhead").innerHTML = input1
+        })
+        
+        
+    </script>
+</body>
+</html>
