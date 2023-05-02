@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import ReactDOM from "react-dom/client"
 import { API_URL } from "./constant"
 import { IMAGE_URL } from "./constant"
@@ -51,9 +51,19 @@ let inOrder = async () => {
         .catch((error) => console.error(error));
         CardListComponent = () => {
             console.log("ye chala")
+            let [onchangevar,setOnchangevar] = useState("chandan");
             return (
+                
                 <>
                 <h1 className="bg-black text-2xl font-extrabold text-white font-serif">my-dhabas foods</h1>
+                <h1 id ="to-change"className="bg-black text-2xl font-extrabold text-white font-serif">{onchangevar}</h1>
+                <label htmlFor="search">search</label>
+                <br></br>
+                <input onChange={function(){
+                    setOnchangevar(document.getElementById("search-txt").value)
+                    console.log(onchangevar)
+                }} id="search-txt" className="bg-green-200" name="search" type="text"/>
+                <button >Search</button>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 bg-white text-black rounded-md">
                     <SingleCardComponent my_card={card_arr[1]} className=" "/>
                     <SingleCardComponent my_card={card_arr[2]} className=" "/>
