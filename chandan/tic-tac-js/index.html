@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="m-3">
+      <table class="bg-blue-500 border-4 border-black">
+        <tr class="bg-green-400">
+          <td id="00" class="border-2 border-black">00</td>
+          <td id="01" class="border-2 border-black">01</td>
+          <td id="02" class="border-2 border-black">02</td>
+        </tr>
+
+        <tr>
+          <td id="10" class="border-2 border-black">10</td>
+          <td id="11" class="border-2 border-black">11</td>
+          <td id="12" class="border-2 border-black">12</td>
+        </tr>
+
+        <tr class="bg-green-400">
+          <td id="20" class="border-2 border-black">20</td>
+          <td id="21" class="border-2 border-black">21</td>
+          <td id="22" class="border-2 border-black">22</td>
+        </tr>
+      </table>
+    </div>
+
+    <script>
+
+        let box1=document.getElementById('00');
+
+        box1.addEventListener('click',()=>{
+            console.log('cliked')
+        })
+
+    </script>
+  </body>
+</html>
