@@ -12,29 +12,52 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="flex justify-center items-center bg-gray-400">
-      <table class="bg-blue-500 border-4 border-black w-56 h-56">
+    <div class="flex justify-center items-center bg-gray-400 ">
+      <div>
+        <p id="ta">A this is your turn</p>
+        
+      </div>
+      <table class="bg-blue-500 border-4 border-black w-56 h-56 ">
         <tr class="bg-green-400">
-          <td id="00" class="border-2 border-black px-14">00</td>
-          <td id="01" class="border-2 border-black px-14">01</td>
-          <td id="02" class="border-2 border-black px-14">02</td>
+          <td id="00" class="border-2 border-black">&nbsp;</td>
+          <td id="01" class="border-2 border-black">&nbsp;</td>
+          <td id="02" class="border-2 border-black">&nbsp;</td>
         </tr>
 
         <tr>
-          <td id="10" class="border-2 border-black px-14">10</td>
-          <td id="11" class="border-2 border-black px-14">11</td>
-          <td id="12" class="border-2 border-black px-14">12</td>
+          <td id="10" class="border-2 border-black">&nbsp;</td>
+          <td id="11" class="border-2 border-black">&nbsp;</td>
+          <td id="12" class="border-2 border-black">&nbsp;</td>
         </tr>
 
         <tr class="bg-green-400">
-          <td id="20" class="border-2 border-black px-14">20</td>
-          <td id="21" class="border-2 border-black px-14">21</td>
-          <td id="22" class="border-2 border-black px-14">22</td>
+          <td id="20" class="border-2 border-black">&nbsp;</td>
+          <td id="21" class="border-2 border-black">&nbsp;</td>
+          <td id="22" class="border-2 border-black">&nbsp;</td>
         </tr>
       </table>
+      <div>
+        <p id="tb">B this is your turn</p>
+        
+      </div>
     </div>
 
     <script>
+
+        let ta=document.getElementById('ta');
+        let tb=document.getElementById('tb');
+        // ta.hidden=true;
+        tb.hidden=true;
+
+        let toggleTurn=(turn)=>{
+            if(turn==='A'){
+              ta.hidden=false;
+              tb.hidden=true;
+            }else{
+              ta.hidden=true;
+              tb.hidden=false;
+            }
+        }
 
         let box1=document.getElementById('00');
         let box2=document.getElementById('01');
@@ -59,25 +82,31 @@
               console.log('cliked');
               box1.innerHTML="A";
               turn='B';
-
+              toggleTurn(turn)
+              
               let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
 
               if((ch1==='A' && ch4==='A' && ch7==='A')||(ch1==='A' && ch2==='A' && ch3==='A')||(ch1==='A' && ch5==='A' && ch9==='A')){
                 alert("A you are the winner")
+                window.location.reload();
               }
 
              }else if(!fil_1 && turn==='B'){
               box1.innerHTML="B";
               turn='A';
+              toggleTurn(turn);
+            
 
               let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
 
               if((ch1==='B' && ch4==='B' && ch7==='B')||(ch1==='B' && ch2==='B' && ch3==='B')||(ch1==='B' && ch5==='B' && ch9==='B')){
                 alert("B you are the winner")
+                window.location.reload();
               }
              }
 
              fil_1=true;
+            
    
         })
         
@@ -87,21 +116,25 @@
           console.log('cliked');
           box2.innerHTML="A";
           turn='B';
+          toggleTurn(turn);
 
           let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
 
           if((ch2==='A' && ch5==='A' && ch8==='A')||(ch1==='A' && ch2==='A' && ch3==='A')){
           alert("A you are the winner")
+          window.location.reload();
           }
 
           }else if(!fil_2 && turn==='B'){
           box2.innerHTML="B";
           turn='A';
+          toggleTurn(turn);
 
           let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
 
           if((ch2==='B' && ch5==='B' && ch8==='B')||(ch1==='B' && ch2==='B' && ch3==='B')){
           alert("B you are the winner")
+          window.location.reload();
           }
           }
 
@@ -116,21 +149,25 @@
           console.log('cliked');
           box3.innerHTML="A";
           turn='B';
+          toggleTurn(turn);
 
           let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
 
           if((ch3==='A' && ch5==='A' && ch7==='A')||(ch1==='A' && ch2==='A' && ch3==='A')){
           alert("A you are the winner")
+          window.location.reload();
           }
 
           }else if(!fil_3 && turn==='B'){
           box3.innerHTML="B";
           turn='A';
+          toggleTurn(turn);
 
           let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
 
           if((ch3==='B' && ch5==='B' && ch7==='B')||(ch1==='B' && ch2==='B' && ch3==='B')){
           alert("B you are the winner")
+          window.location.reload();
           }
           }
 
@@ -145,21 +182,25 @@
           console.log('cliked');
           box4.innerHTML="A";
           turn='B';
+          toggleTurn(turn);
 
           let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
 
           if((ch4==='A' && ch5==='A' && ch6==='A')||(ch1==='A' && ch4==='A' && ch7==='A')){
           alert("A you are the winner")
+          window.location.reload();
           }
 
           }else if(!fil_4 && turn==='B'){
           box4.innerHTML="B";
           turn='A';
+          toggleTurn(turn);
 
           let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
 
           if((ch4==='B' && ch5==='B' && ch6==='B')||(ch1==='B' && ch4==='B' && ch7==='B')){
           alert("B you are the winner")
+          window.location.reload();
           }
           }
 
@@ -174,21 +215,25 @@
             console.log('cliked');
             box5.innerHTML="A";
             turn='B';
+            toggleTurn(turn);
 
             let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
 
             if((ch5==='A' && ch2==='A' && ch8==='A')||(ch4==='A' && ch5==='A' && ch6==='A')){
             alert("A you are the winner")
+            window.location.reload();
             }
 
             }else if(!fil_5 && turn==='B'){
             box5.innerHTML="B";
             turn='A';
+            toggleTurn(turn);
 
             let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
 
             if((ch5==='B' && ch2==='B' && ch8==='B')||(ch5==='B' && ch4==='B' && ch6==='B')){
             alert("B you are the winner")
+            window.location.reload();
             }
             }
 
@@ -203,21 +248,25 @@ box6.addEventListener('click',()=>{
       console.log('cliked');
       box6.innerHTML="A";
       turn='B';
+      toggleTurn(turn);
 
       let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
 
       if((ch5==='A' && ch6==='A' && ch4==='A')||(ch3==='A' && ch6==='A' && ch9==='A')){
       alert("A you are the winner")
+      window.location.reload();
       }
 
       }else if(!fil_6 && turn==='B'){
       box6.innerHTML="B";
       turn='A';
+      toggleTurn(turn);
 
       let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
 
       if((ch5==='B' && ch6==='B' && ch4==='B')||(ch3==='B' && ch6==='B' && ch9==='B')){
       alert("B you are the winner")
+      window.location.reload();
       }
       }
 
@@ -232,21 +281,25 @@ box7.addEventListener('click',()=>{
       console.log('cliked');
       box7.innerHTML="A";
       turn='B';
+      toggleTurn(turn);
 
       let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
 
       if((ch1==='A' && ch4==='A' && ch7==='A')||(ch7==='A' && ch8==='A' && ch9==='A')||(ch7==='A' && ch5==='A' && ch3==='A')){
       alert("A you are the winner")
+      window.location.reload();
       }
 
       }else if(!fil_7 && turn==='B'){
       box7.innerHTML="B";
       turn='A';
+      toggleTurn(turn);
 
       let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
 
       if((ch1==='B' && ch4==='B' && ch7==='B')||(ch7==='B' && ch8==='B' && ch9==='B')||(ch7==='B' && ch5==='B' && ch3==='B')){
       alert("B you are the winner")
+      window.location.reload();
       }
       }
       fil_7=true;
@@ -260,21 +313,25 @@ box8.addEventListener('click',()=>{
     console.log('cliked');
     box8.innerHTML="A";
     turn='B';
+    toggleTurn(turn);
 
     let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
 
     if((ch7==='A' && ch8==='A' && ch9==='A')||(ch2==='A' && ch5==='A' && ch8==='A')){
     alert("A you are the winner")
+    window.location.reload();
     }
 
     }else if(!fil_8 && turn==='B'){
     box8.innerHTML="B";
     turn='A';
+    toggleTurn(turn);
 
     let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
 
     if((ch7==='B' && ch8==='B' && ch9==='B')||(ch2==='B' && ch5==='B' && ch8==='B')){
     alert("B you are the winner")
+    window.location.reload();
     }
     }
 
@@ -289,21 +346,24 @@ box9.addEventListener('click',()=>{
     console.log('cliked');
     box9.innerHTML="A";
     turn='B';
-
+    toggleTurn(turn);
     let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
 
     if((ch1==='A' && ch5==='A' && ch9==='A')||(ch7==='A' && ch8==='A' && ch9==='A')||(ch9==='A' && ch6==='A' && ch3==='A')){
     alert("A you are the winner")
+    window.location.reload();
     }
 
     }else if(!fil_9 && turn==='B'){
     box9.innerHTML="B";
     turn='A';
+    toggleTurn(turn);
 
     let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
 
     if((ch1==='B' && ch5==='B' && ch9==='B')||(ch7==='B' && ch8==='B' && ch9==='B')||(ch9==='B' && ch6==='B' && ch3==='B')){
     alert("B you are the winner")
+    window.location.reload();
     }
     }
 
