@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    /> -->
+    <link href="../dist/output.css" rel="stylesheet">
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="flex justify-center items-center bg-gray-400">
+      <table class="bg-blue-500 border-4 border-black w-56 h-56">
+        <tr class="bg-green-400">
+          <td id="00" class="border-2 border-black px-14">00</td>
+          <td id="01" class="border-2 border-black px-14">01</td>
+          <td id="02" class="border-2 border-black px-14">02</td>
+        </tr>
+
+        <tr>
+          <td id="10" class="border-2 border-black px-14">10</td>
+          <td id="11" class="border-2 border-black px-14">11</td>
+          <td id="12" class="border-2 border-black px-14">12</td>
+        </tr>
+
+        <tr class="bg-green-400">
+          <td id="20" class="border-2 border-black px-14">20</td>
+          <td id="21" class="border-2 border-black px-14">21</td>
+          <td id="22" class="border-2 border-black px-14">22</td>
+        </tr>
+      </table>
+    </div>
+
+    <script>
+
+        let box1=document.getElementById('00');
+        let box2=document.getElementById('01');
+        let box3=document.getElementById('02');
+
+        let box4=document.getElementById('10');
+        let box5=document.getElementById('11');
+        let box6=document.getElementById('12');
+
+        let box7=document.getElementById('20');
+        let box8=document.getElementById('21');
+        let box9=document.getElementById('22');
+
+
+        let fil_1=false,fil_2=false,fil_3=false,fil_4=false,fil_5=false,fil_6=false,fil_7=false,fil_8=false,fil_9=false;
+
+        let turn='A' //we will change turn as a-b-a-b-a-b ...and so on
+
+        box1.addEventListener('click',()=>{
+
+             if(!fil_1&& turn==='A'){
+              console.log('cliked');
+              box1.innerHTML="A";
+              turn='B';
+
+              let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
+
+              if((ch1==='A' && ch4==='A' && ch7==='A')||(ch1==='A' && ch2==='A' && ch3==='A')||(ch1==='A' && ch5==='A' && ch9==='A')){
+                alert("A you are the winner")
+              }
+
+             }else if(!fil_1 && turn==='B'){
+              box1.innerHTML="B";
+              turn='A';
+
+              let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
+
+              if((ch1==='B' && ch4==='B' && ch7==='B')||(ch1==='B' && ch2==='B' && ch3==='B')||(ch1==='B' && ch5==='B' && ch9==='B')){
+                alert("B you are the winner")
+              }
+             }
+
+             fil_1=true;
+   
+        })
+        
+        box2.addEventListener('click',()=>{
+
+          if(!fil_2&& turn==='A'){
+          console.log('cliked');
+          box2.innerHTML="A";
+          turn='B';
+
+          let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
+
+          if((ch2==='A' && ch5==='A' && ch8==='A')||(ch1==='A' && ch2==='A' && ch3==='A')){
+          alert("A you are the winner")
+          }
+
+          }else if(!fil_2 && turn==='B'){
+          box2.innerHTML="B";
+          turn='A';
+
+          let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
+
+          if((ch2==='B' && ch5==='B' && ch8==='B')||(ch1==='B' && ch2==='B' && ch3==='B')){
+          alert("B you are the winner")
+          }
+          }
+
+          fil_2=true;
+
+          })
+
+
+       box3.addEventListener('click',()=>{
+
+          if(!fil_3&& turn==='A'){
+          console.log('cliked');
+          box3.innerHTML="A";
+          turn='B';
+
+          let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
+
+          if((ch3==='A' && ch5==='A' && ch7==='A')||(ch1==='A' && ch2==='A' && ch3==='A')){
+          alert("A you are the winner")
+          }
+
+          }else if(!fil_3 && turn==='B'){
+          box3.innerHTML="B";
+          turn='A';
+
+          let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
+
+          if((ch3==='B' && ch5==='B' && ch7==='B')||(ch1==='B' && ch2==='B' && ch3==='B')){
+          alert("B you are the winner")
+          }
+          }
+
+          fil_3=true;
+
+          }) 
+          
+        
+          box4.addEventListener('click',()=>{
+
+          if(!fil_4&& turn==='A'){
+          console.log('cliked');
+          box4.innerHTML="A";
+          turn='B';
+
+          let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
+
+          if((ch4==='A' && ch5==='A' && ch6==='A')||(ch1==='A' && ch4==='A' && ch7==='A')){
+          alert("A you are the winner")
+          }
+
+          }else if(!fil_4 && turn==='B'){
+          box4.innerHTML="B";
+          turn='A';
+
+          let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
+
+          if((ch4==='B' && ch5==='B' && ch6==='B')||(ch1==='B' && ch4==='B' && ch7==='B')){
+          alert("B you are the winner")
+          }
+          }
+
+          fil_4=true;
+
+          }) 
+        
+
+          box5.addEventListener('click',()=>{
+
+            if(!fil_5&& turn==='A'){
+            console.log('cliked');
+            box5.innerHTML="A";
+            turn='B';
+
+            let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
+
+            if((ch5==='A' && ch2==='A' && ch8==='A')||(ch4==='A' && ch5==='A' && ch6==='A')){
+            alert("A you are the winner")
+            }
+
+            }else if(!fil_5 && turn==='B'){
+            box5.innerHTML="B";
+            turn='A';
+
+            let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
+
+            if((ch5==='B' && ch2==='B' && ch8==='B')||(ch5==='B' && ch4==='B' && ch6==='B')){
+            alert("B you are the winner")
+            }
+            }
+
+            fil_5=true;
+
+}) 
+
+
+box6.addEventListener('click',()=>{
+
+      if(!fil_6&& turn==='A'){
+      console.log('cliked');
+      box6.innerHTML="A";
+      turn='B';
+
+      let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
+
+      if((ch5==='A' && ch6==='A' && ch4==='A')||(ch3==='A' && ch6==='A' && ch9==='A')){
+      alert("A you are the winner")
+      }
+
+      }else if(!fil_6 && turn==='B'){
+      box6.innerHTML="B";
+      turn='A';
+
+      let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
+
+      if((ch5==='B' && ch6==='B' && ch4==='B')||(ch3==='B' && ch6==='B' && ch9==='B')){
+      alert("B you are the winner")
+      }
+      }
+
+      fil_6=true;
+
+}) 
+
+
+box7.addEventListener('click',()=>{
+
+      if(!fil_7&& turn==='A'){
+      console.log('cliked');
+      box7.innerHTML="A";
+      turn='B';
+
+      let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
+
+      if((ch1==='A' && ch4==='A' && ch7==='A')||(ch7==='A' && ch8==='A' && ch9==='A')||(ch7==='A' && ch5==='A' && ch3==='A')){
+      alert("A you are the winner")
+      }
+
+      }else if(!fil_7 && turn==='B'){
+      box7.innerHTML="B";
+      turn='A';
+
+      let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
+
+      if((ch1==='B' && ch4==='B' && ch7==='B')||(ch7==='B' && ch8==='B' && ch9==='B')||(ch7==='B' && ch5==='B' && ch3==='B')){
+      alert("B you are the winner")
+      }
+      }
+      fil_7=true;
+
+})
+
+
+box8.addEventListener('click',()=>{
+
+    if(!fil_8&& turn==='A'){
+    console.log('cliked');
+    box8.innerHTML="A";
+    turn='B';
+
+    let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
+
+    if((ch7==='A' && ch8==='A' && ch9==='A')||(ch2==='A' && ch5==='A' && ch8==='A')){
+    alert("A you are the winner")
+    }
+
+    }else if(!fil_8 && turn==='B'){
+    box8.innerHTML="B";
+    turn='A';
+
+    let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
+
+    if((ch7==='B' && ch8==='B' && ch9==='B')||(ch2==='B' && ch5==='B' && ch8==='B')){
+    alert("B you are the winner")
+    }
+    }
+
+    fil_8=true;
+
+}) 
+
+
+box9.addEventListener('click',()=>{
+
+    if(!fil_9&& turn==='A'){
+    console.log('cliked');
+    box9.innerHTML="A";
+    turn='B';
+
+    let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
+
+    if((ch1==='A' && ch5==='A' && ch9==='A')||(ch7==='A' && ch8==='A' && ch9==='A')||(ch9==='A' && ch6==='A' && ch3==='A')){
+    alert("A you are the winner")
+    }
+
+    }else if(!fil_9 && turn==='B'){
+    box9.innerHTML="B";
+    turn='A';
+
+    let ch1=box1.innerHTML, ch2=box2.innerHTML,  ch3=box3.innerHTML, ch4=box4.innerHTML, ch5=box5.innerHTML, ch6=box6.innerHTML, ch7=box7.innerHTML, ch8=box8.innerHTML, ch9=box9.innerHTML ;
+
+    if((ch1==='B' && ch5==='B' && ch9==='B')||(ch7==='B' && ch8==='B' && ch9==='B')||(ch9==='B' && ch6==='B' && ch3==='B')){
+    alert("B you are the winner")
+    }
+    }
+
+    fil_9=true;
+
+})
+
+
+    </script>
+  </body>
+</html>
