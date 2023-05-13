@@ -17,7 +17,7 @@ let Shimmer = (props) => {
                 <button className="bg-gray-400 rounded-xl px-2 text-gray-600 font-extrabold mr-2 w-20"></button>
             </div>
         </div>
-        
+
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mx-3 gap-2 ">
         {
             sizeArray.map((item)=>{
