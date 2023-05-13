@@ -3,7 +3,7 @@ import { IMAGE_URL } from "../Constants/Constants"
 let SingleResturentCard = (props) => {
     return (
         <div className="">
-            <div className="h-70 w-70 rounded-md m-2 ">
+            <div className="h-70 w-70  m-2 border-solid border-2 border-black">
                 <img src={IMAGE_URL + props.resturantList.data.data.cloudinaryImageId} alt="food" />
                 <div className="bg-gray-300 px-2 w-70 h-30">
                     <p>{props.resturantList.data.data.name}</p>

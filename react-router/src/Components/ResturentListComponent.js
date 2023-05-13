@@ -56,7 +56,7 @@ let ResturantList = () => {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 bg-white text-black rounded-md">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mx-3 gap-2 bg-white text-black rounded-md">
                         {
                         filteredData.map((item,index) => {
                                 return (
