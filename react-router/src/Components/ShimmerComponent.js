@@ -22,8 +22,8 @@ let Shimmer = (props) => {
         {
             sizeArray.map((item)=>{
                 return(
-                    <div className="p-32  m-2 bg-gray-600 animate-pulse text-gray-600 rounded-xl">
-                    hello
+                    <div key={item} className="p-32  m-2 bg-gray-600 animate-pulse text-gray-600 rounded-xl">
+                    
                 </div>
                     )
             })
