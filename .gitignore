@@ -13,3 +13,6 @@ heroku-deployment/.gitignore
 /chandan/note_app_using_react_components/.parcel-cache
 /chandan/note_app_using_react_components/dist
 /chandan/note_app_using_react_components/node_modules
+react-router/.parcel-cache
+react-router/dist
+react-router/node_modules
