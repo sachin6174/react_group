@@ -42,7 +42,7 @@ let ResturantList = () => {
         return(<Shimmer/>)
     }else{
         return (
-          <div  >
+          <div >
             <div className="bg-black text-white flex justify-center items-center">
               <div className="flex gap-2 justify-center items-center">
                 <input
