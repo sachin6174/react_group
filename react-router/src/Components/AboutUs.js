@@ -1,6 +1,7 @@
 let AboutUs = () => {
   return (
-    <div>
+    <div className=" h-screen ">
+      About
       <p>
         Sure, here is an example of what information could be included on an
         "About Us" page: Introduction: Start with a brief introduction about

@@ -1,104 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./src/Components/AppLayoutComponent";
+import App from "./src/Components/AppLayout";
+import ContactUs from "./src/Components/ContactUs";
+import AboutUs from "./src/Components/AboutUs";
+import Support from "./src/Components/SupportPage";
+import ResturantList from "./src/Components/ResturentList";
+import Error from "./src/Components/ErrorPage";
+import FoodMenu from "./src/Components/FoodMenu"
 
-// import {
-//   createBrowserRouter,
-//   RouterProvider,
-//   Route,
-//   Link,
-// } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Route,
+  Routes,
+  RouterProvider,
+} from "react-router-dom";
 
-// let Support = () => {
-//   return (
-//     <React.Fragment>
-//       Support
-//       <p>
-//         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem,
-//         cumque quidem labore ab expedita dolorum cupiditate debitis ullam quia
-//         facilis perferendis eveniet facere asperiores minima, culpa iusto?
-//         Neque, expedita dolore!
-//       </p>
-//     </React.Fragment>
-//   );
-// };
-// let Contect = () => {
-//   return (
-//     <React.Fragment>
-//       Contect
-//       <p>
-//         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem,
-//         cumque quidem labore ab expedita dolorum cupiditate debitis ullam quia
-//         facilis perferendis eveniet facere asperiores minima, culpa iusto?
-//         Neque, expedita dolore!
-//       </p>
-//     </React.Fragment>
-//   );
-// };
-// let About = () => {
-//   return (
-//     <React.Fragment>
-//       About
-//       <p>
-//         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem,
-//         cumque quidem labore ab expedita dolorum cupiditate debitis ullam quia
-//         facilis perferendis eveniet facere asperiores minima, culpa iusto?
-//         Neque, expedita dolore!
-//       </p>
-//     </React.Fragment>
-//   );
-// };
-// let mycss = {
-//   display: "flex",
-//   justifyContent: "space-between",
-// };
+let appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: "/",
+        element: <ResturantList />,
+      },
+      {
+        path: "about",
+        element: <AboutUs />,
+      },
+      {
+        path: "contact",
+        element: <ContactUs />,
+      },
+      {
+        path: "support",
+        element: <Support />,
+      },
+      {
+        path: "resturant/:resturantId",
+        element: <FoodMenu />,
+      },
+    ],
+  },
+]);
 
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: (
-//       <div style={mycss}>
-//         <div>
-//           <Link to="/about">
-//           About
-//         </Link>
-//         <Link to="/contect">
-//           Contect
-//         </Link>
-//         <Link to="/support">
-//           Support
-//         </Link>
-//         </div>
-        
-//         <ResturantListComponent/>
-//       </div>
-//     ),
-//     // errorElement: (
-//     //   <div>
-//     //     <h1>404</h1>
-//     //     <p>Sorry, the page you requested could not be found.</p>
-//     //   </div>
-//     // ),
-//   },
-
-//   {
-//     path: "/about",
-//     element: <About />,
-//   },
-//   {
-//     path: "contect",
-//     element: <Contect />,
-//   },
-//   {
-//     path: "support",
-//     element: <Support />,
-//   },
-
-// ]);
-
-// createRoot(document.getElementById("root")).render(
-//   <RouterProvider router={router} />
-// );
 createRoot(document.getElementById("root")).render(
-  <App/>
+  <RouterProvider router={appRouter} />
 );
