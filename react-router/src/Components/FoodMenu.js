@@ -37,14 +37,19 @@ let FoodMenu = (props) => {
     }else{
          return (
            <div>
-             <h1>Res Id is {resturantId}</h1>
-             <h2>Avalable Menu is:- </h2>
-             <ul>
+             <h1 className="mx-4 text-2xl font-bold font-serif">Res Id is {resturantId}</h1>
+             <h2 className="mx-4 text-2xl font-bold font-serif">Avalable Menu is:- </h2>
+             <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mx-3 gap-2">
                {menuCardList.map((item, index) => {
                  return (
-                   <li key={index}>
-                     <span>{item?.card?.info?.name}</span> ==========
-                     <span>{Number(item?.card?.info?.price) / 100}Rupees</span>
+                   <li key={index} className="even:bg-green-400 odd:bg-green-600 rounded-md p-2 ">
+                    <div >
+                      {/* <img src={item?.card?.info?.imageId} alt="food" /> */}
+                      <p className="h-10 font-bold">{item?.card?.info?.name}</p>
+                      <p><strong>{Number(item?.card?.info?.price) / 100}</strong> Rupees</p>
+                      <button className="bg-blue-600 font-bold px-1 rounded-md">ORDER</button>
+                    </div>
+                    
                    </li>
                  );
                })}

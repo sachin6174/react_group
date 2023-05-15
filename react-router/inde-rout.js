@@ -6,7 +6,7 @@ import {
   createBrowserRouter,
   RouterProvider,
   Route,
-  Link,
+  Link, Outlet
 } from "react-router-dom";
 
 let Support = () => {
@@ -64,8 +64,11 @@ const router = createBrowserRouter([
         <Link to="/support">
           Support
         </Link>
+             
         </div>
+
       </div>
+      
     ),
 errorElement: (
   <div>
