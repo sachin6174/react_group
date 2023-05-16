@@ -1,9 +1,11 @@
 import {useState ,useEffect} from "react"
 import { useActionData, useParams } from "react-router-dom";
 import { API_URL_MENU } from "../Constants/Constants";
+import { IMAGE_URL } from "../Constants/Constants";
+
 let FoodMenu = (props) => {
 
-    let [menuCardList,setMenuCardList] =useState([])
+    let [menuCardList,setMenuCardList] =useState(null)
 
 
     const { resturantId } = useParams();
@@ -25,13 +27,12 @@ let FoodMenu = (props) => {
         .catch((error) => console.error(error));
     },[])
     
-    if (menuCardList.length===0){
+    if (menuCardList === null){
         return (
           <div>
             <h1>Res Id is {resturantId}</h1>
             <h2>Avalable Menu is:- </h2>
             <div>Loding menu card ..........</div>
-            
           </div>
         );
     }else{
@@ -39,25 +40,38 @@ let FoodMenu = (props) => {
            <div>
              <h1 className="mx-4 text-2xl font-bold font-serif">Res Id is {resturantId}</h1>
              <h2 className="mx-4 text-2xl font-bold font-serif">Avalable Menu is:- </h2>
-             <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mx-3 gap-2">
-               {menuCardList.map((item, index) => {
+             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mx-3 gap-2">
+               {menuCardList?.map((item, index) => {
                  return (
-                   <li key={index} className="even:bg-green-400 odd:bg-green-600 rounded-md p-2 ">
-                    <div >
-                      {/* <img src={item?.card?.info?.imageId} alt="food" /> */}
-                      <p className="h-10 font-bold">{item?.card?.info?.name}</p>
-                      <p><strong>{Number(item?.card?.info?.price) / 100}</strong> Rupees</p>
-                      <button className="bg-blue-600 font-bold px-1 rounded-md">ORDER</button>
-                    </div>
-                    
-                   </li>
+                   <div
+                     key={index}
+                     className="even:bg-green-400 odd:bg-green-600 rounded-md p-2 "
+                   >
+                     <div>
+                       <img
+                         src={IMAGE_URL+item?.card?.info?.imageId}
+                         alt="food_item"
+                       />
+                       <p className="h-10 font-bold">
+                         {item?.card?.info?.name}
+                       </p>
+                       <p>
+                         <strong>
+                           {Number(item?.card?.info?.price) / 100}
+                         </strong>{" "}
+                         Rupees
+                       </p>
+                       <button className="bg-blue-600 font-bold px-1 rounded-md">
+                         ORDER
+                       </button>
+                     </div>
+                   </div>
                  );
                })}
-             </ul>
+             </div>
            </div>
          );
     }
-     
 }
 
 export default FoodMenu;
