@@ -2,10 +2,6 @@ import {useState ,useEffect} from "react"
 import { useActionData, useParams } from "react-router-dom";
 import { API_URL_MENU } from "../Constants/Constants";
 import { IMAGE_URL } from "../Constants/Constants";
-<<<<<<< HEAD
-
-=======
->>>>>>> 6ab6f09 (dynamic-routing learning)
 let FoodMenu = (props) => {
 
     let [menuCardList,setMenuCardList] =useState(null)
