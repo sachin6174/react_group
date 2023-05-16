@@ -2,7 +2,10 @@ import {useState ,useEffect} from "react"
 import { useActionData, useParams } from "react-router-dom";
 import { API_URL_MENU } from "../Constants/Constants";
 import { IMAGE_URL } from "../Constants/Constants";
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6ab6f09 (dynamic-routing learning)
 let FoodMenu = (props) => {
 
     let [menuCardList,setMenuCardList] =useState(null)
@@ -43,32 +46,18 @@ let FoodMenu = (props) => {
              <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mx-3 gap-2">
                {menuCardList?.map((item, index) => {
                  return (
-                   <div
-                     key={index}
-                     className="even:bg-green-400 odd:bg-green-600 rounded-md p-2 "
-                   >
-                     <div>
-                       <img
-                         src={IMAGE_URL+item?.card?.info?.imageId}
-                         alt="food_item"
-                       />
-                       <p className="h-10 font-bold">
-                         {item?.card?.info?.name}
-                       </p>
-                       <p>
-                         <strong>
-                           {Number(item?.card?.info?.price) / 100}
-                         </strong>{" "}
-                         Rupees
-                       </p>
-                       <button className="bg-blue-600 font-bold px-1 rounded-md">
-                         ORDER
-                       </button>
-                     </div>
-                   </div>
+                   <li key={index} className="even:bg-green-400 odd:bg-green-600 rounded-md p-2 ">
+                    <div >
+                      <img src={IMAGE_URL+item?.card?.info?.imageId} alt="food" />
+                      <p className="h-10 font-bold">{item?.card?.info?.name}</p>
+                      <p><strong>{Number(item?.card?.info?.price) / 100}</strong> Rupees</p>
+                      <button className="bg-blue-600 font-bold px-1 rounded-md">ORDER</button>
+                    </div>
+                    
+                   </li>
                  );
                })}
-             </div>
+             </ul>
            </div>
          );
     }

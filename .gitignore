@@ -16,3 +16,5 @@ heroku-deployment/.gitignore
 react-router/.parcel-cache
 react-router/dist
 react-router/node_modules
+
+/C:/Users/chand/Desktop/react_group/chandan/routing/node_modules
