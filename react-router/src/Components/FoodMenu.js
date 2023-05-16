@@ -2,6 +2,7 @@ import {useState ,useEffect} from "react"
 import { useActionData, useParams } from "react-router-dom";
 import { API_URL_MENU } from "../Constants/Constants";
 import { IMAGE_URL } from "../Constants/Constants";
+import Shimmer from "./Shimmer";
 let FoodMenu = (props) => {
 
     let [menuCardList,setMenuCardList] =useState(null)
@@ -29,9 +30,9 @@ let FoodMenu = (props) => {
     if (menuCardList === null){
         return (
           <div>
-            <h1>Res Id is {resturantId}</h1>
-            <h2>Avalable Menu is:- </h2>
-            <div>Loding menu card ..........</div>
+            
+            <div  className="text-4xl font-extrabold">Loading menu card ..........</div>
+            <Shimmer/>
           </div>
         );
     }else{
