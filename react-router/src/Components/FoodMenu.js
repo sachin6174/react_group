@@ -40,7 +40,7 @@ let FoodMenu = (props) => {
            <div>
              <h1 className="mx-4 text-2xl font-bold font-serif">Res Id is {resturantId}</h1>
              <h2 className="mx-4 text-2xl font-bold font-serif">Avalable Menu is:- </h2>
-             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mx-3 gap-2">
+             <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mx-3 gap-2">
                {menuCardList?.map((item, index) => {
                  return (
                    <div
