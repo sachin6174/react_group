@@ -22,7 +22,7 @@ let Header = () => {
   //   </div>
   // );
   return (
-    <div className="bg-black text-white flex justify-between">
+    <div className="bg-gradient-to-r from-blue-500 to-orange-800 text-white flex justify-between">
       <div className="flex gap-3 ">
         <img
           className="h-8 m-1 border-solid border-red-400 border-2 rounded-full"
@@ -30,7 +30,7 @@ let Header = () => {
           alt="AppLogo"
         />
         <Link to="/">
-          <h1 className="bg-black mt-1 text-2xl font-extrabold text-white font-serif">
+          <h1 className="bg-gradient-to-l from-blue-500 to-orange-800 mt-1 text-2xl font-extrabold text-white font-serif rounded-md px-1">
             Chandan Foods
           </h1>
         </Link>
