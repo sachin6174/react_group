@@ -9,6 +9,7 @@ let FoodMenu = (props) => {
 
 
     const { resturantId } = useParams();
+    const {restaurant}=useParams();
     console.log(resturantId);
     useEffect(()=>{
       fetch(API_URL_MENU + resturantId)

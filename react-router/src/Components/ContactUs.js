@@ -19,6 +19,7 @@ const Contact = () => {
               placeholder="ENTER NAME:"
               onChange={(e) => setName(e.target.value
               )}
+              
 
 
             />

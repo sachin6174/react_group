@@ -7,6 +7,7 @@ import Support from "./src/Components/SupportPage";
 import ResturantList from "./src/Components/ResturentList";
 import Error from "./src/Components/ErrorPage";
 import FoodMenu from "./src/Components/FoodMenu"
+import Login_page from "./src/Components/Login-page";
 
 import {
   createBrowserRouter,
@@ -41,6 +42,11 @@ let appRouter = createBrowserRouter([
         path: "resturant/:resturantId",
         element: <FoodMenu />,
       },
+      {
+        path: "login",
+        element: <Login_page />,
+      },
+
     ],
   },
 ]);
