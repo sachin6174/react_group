@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 
 const Login_page = () => {
   const [username, setUsername] = useState("")
@@ -13,19 +13,30 @@ const Login_page = () => {
 
   const valid_login=(username,password)=>{
     if(username && password){
+      
         if(password===localStorage.getItem(username)){
-          alert('right password');
-          <Link to='/'></Link>
+          alert('logged in');
+        
         }else{
           alert('wrong password or username')
         }
+    }else if(!username){
+      alert('enter-username');
+    }else if(!password){
+      alert('enter-password');
     }
+
     
   }
 
   const sign_up=(nusername,npassword)=>{
-    localStorage.setItem(nusername,npassword);
-    alert('thanks for sign-up ')
+    if(localStorage.getItem(nusername) !== null){
+      alert('this user already-exist')
+    }else{
+      localStorage.setItem(nusername,npassword);
+      alert('thanks for sign-up ')
+    }
+    
   }
 
 
@@ -68,6 +79,8 @@ const Login_page = () => {
 
           <button className='text-white w-32 ml-48 bg-blue-800 font-extrabold font-serif text-xl rounded-lg ' onClick={()=>{
             valid_login(username,password)
+            setUsername("");
+            setPassword("")
           }}>login</button>
 
 
@@ -109,6 +122,8 @@ const Login_page = () => {
 
           <button className='text-white w-32 ml-48 bg-blue-800 font-extrabold font-serif text-xl rounded-lg 'onClick={()=>{
             sign_up(nusername,npassword);
+            setNusername("");
+            setNpassword("");
           }} >sign-up</button>
 
 
