@@ -30,13 +30,16 @@ let Header = () => {
   return (
     <div className="bg-gradient-to-r from-blue-500 to-orange-800 text-white flex justify-between sticky top-0 w-full">
       <div className="flex gap-3 ">
-        <img
+        <Link to='/'>
+          <img
           className="h-8 m-1 border-solid border-red-400 border-2 rounded-full"
           src={Logo}
           alt="AppLogo"
         />
+        </Link>
+        
         <Link to="/">
-          <h1 className="bg-gradient-to-l from-blue-500 to-orange-800 mt-1 text-2xl font-extrabold text-white font-serif rounded-md px-1">
+          <h1 className="hidden sm:block bg-gradient-to-l from-blue-500 to-orange-800 mt-1 text-2xl font-extrabold text-white font-serif rounded-md px-1">
             Chandan Foods
           </h1>
         </Link>
