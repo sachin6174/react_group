@@ -2,38 +2,19 @@ import {
   Link
 } from "react-router-dom";
 import Logo from "../assets/images/ChandanFoodsLogo.png";
+import cklogo from "../assets/images/ck.jpg"
 
 import Login_page from "./Login-page";
 
 let Header = () => {
-  
-  console.log(localStorage.getItem('chandan'));
-  localStorage.clear();
-  
-  // return (
-  //   <div className="bg-black text-white flex justify-between">
-  //     <div className="flex gap-3">
-  //       <h1 className="bg-black text-2xl font-extrabold text-white font-serif">
-  //         Chandan Foods
-  //       </h1>
-  //       <h1
-  //         id="to-change"
-  //         className="bg-black text-2xl font-extrabold text-white font-serif "
-  //       >
-  //         <span className="text-green-500 font-extrabold"></span>
-  //       </h1>
-  //     </div>
-  //     
-  //     </div>
-  //   </div>
-  // );
+
   return (
-    <div className="bg-gradient-to-r from-blue-500 to-orange-800 text-white flex justify-between sticky top-0 w-full">
+    <div className="bg-gradient-to-r from-blue-500 to-orange-800 text-white flex justify-between sticky top-0 min-w-fit">
       <div className="flex gap-3 ">
         <Link to='/'>
           <img
-          className="h-8 m-1 border-solid border-red-400 border-2 rounded-full"
-          src={Logo}
+          className="h-8 w-8 m-1 border-solid border-red-400 border-2 rounded-full"
+          src={cklogo}
           alt="AppLogo"
         />
         </Link>
