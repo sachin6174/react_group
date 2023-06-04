@@ -9,10 +9,13 @@ let SingleResturentCard = (props) => {
             src={IMAGE_URL + props.resturantList.data.data.cloudinaryImageId}
             alt="food_resturent"
           />
-          <div className="bg-gray-300 px-2 w-70 h-30 p-3 ">
+          <div className="bg-gray-300 px-2 w-70 h-30 p-3 border-solid border-2  border-sky-500">
             <p className="w-full h-14 ">{props.resturantList.data.data.name}</p>
-            <p>{props?.resturantList?.data?.data?.area}</p>
-            <p>{props?.resturantList?.data?.data?.id}</p>
+            <p>Address: {props?.resturantList?.data?.data?.area}</p>
+            <p>Res Id: {props?.resturantList?.data?.data?.id}</p>
+            <p>
+              Rating: {props?.resturantList?.data?.data?.avgRating} &#11088;
+            </p>
           </div>
         </div>
       </Link>
