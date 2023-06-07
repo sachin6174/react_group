@@ -41,7 +41,7 @@ let Header = () => {
         </div>
       </div>
       <div className="flex gap-2 justify-center items-center">
-        <span className="  m-1  text-white px-2">Hello {localStorage.getItem('chandan')}</span>
+        <span className="  m-1  text-white px-2">Hello {localStorage.getItem('username')}</span>
         <button  className="bg-gray-400 m-1 rounded-xl px-2 text-red-800 font-extrabold mr-2">
           <Link to="login">
           Login

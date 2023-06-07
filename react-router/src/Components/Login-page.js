@@ -10,13 +10,15 @@ const Login_page = () => {
   const [nusername, setNusername] = useState("")
 
   const [npassword, setNpassword] = useState("")
+  
 
   const valid_login=(username,password)=>{
     if(username && password){
       
         if(password===localStorage.getItem(username)){
-          alert('logged in');
         
+          window.location.href = "/";
+          
         }else{
           alert('wrong password or username')
         }

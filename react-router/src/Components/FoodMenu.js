@@ -48,7 +48,7 @@ let FoodMenu = (props) => {
                     <div >
                       <img src={IMAGE_URL+item?.card?.info?.imageId} alt="food" />
                       <p className="h-10 font-bold">{item?.card?.info?.name}</p>
-                      <p><strong>{Number(item?.card?.info?.price) / 100}</strong> Rupees</p>
+                      <p><strong>{Number((item?.card?.info?.price) / 100)}</strong> Rupees</p>
                       <button className="bg-blue-600 font-bold px-1 rounded-md">ORDER</button>
                     </div>
                     
