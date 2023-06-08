@@ -124,6 +124,7 @@
                         console.log(current_user)
                         let cnt = current_user.topic.length;
                         console.log(cnt)
+                 
                         for (let i = 0; i < cnt; i++) {
                             let topic = current_user.topic[i];
                             let description = current_user.description[i]
@@ -180,11 +181,14 @@
             let description = document.getElementById("description-value").value;
             
             let i= current_user.topic.length;
-            para.innerHTML += `<div id="${i}_${current_user_name}_div" >topic is :  ${topic} <br/> description is :  ${description} <br/> <button class="del" id="${i}">Delete</button><div><hr/>`;
+            if(topic && description){
+                para.innerHTML += `<div id="${i}_${current_user_name}_div" >topic is :  ${topic} <br/> description is :  ${description} <br/> <button class="del" id="${i}">Delete</button><div><hr/>`;
             current_user.topic.push(topic)
             current_user.description.push(description)
             
             localStorage.setItem(`${current_user.user_name}`, JSON.stringify(current_user))
+            
+            }
             
             document.getElementById("topic-value").value = "";
             document.getElementById("description-value").value = "";

@@ -7,6 +7,13 @@ import cklogo from "../assets/images/ck.jpg"
 import Login_page from "./Login-page";
 
 let Header = () => {
+  let n=localStorage.length
+  let name="";
+  if(n>0){
+    name=localStorage.key(n-1);
+    console.log(name);
+    console.log(localStorage);
+  }
 
   return (
     <div className="bg-gradient-to-r from-blue-500 to-orange-800 text-white flex justify-between sticky top-0 min-w-fit">
@@ -41,7 +48,7 @@ let Header = () => {
         </div>
       </div>
       <div className="flex gap-2 justify-center items-center">
-        <span className="  m-1  text-white px-2">Hello {localStorage.getItem('username')}</span>
+        <span className="  m-1  text-white px-2">Hello {name}</span>
         <button  className="bg-gray-400 m-1 rounded-xl px-2 text-red-800 font-extrabold mr-2">
           <Link to="login">
           Login
