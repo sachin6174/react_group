@@ -20,9 +20,9 @@ const Login_page = () => {
         if(password===localStorage.getItem(username)){
           {
             let n=localStorage.length;
-            if(n>0){
-              swap(localStorage.key(n-1),localStorage.key(0));
-            }
+            // if(n>0){
+            //   swap(localStorage.key(n-1),localStorage.key(0));
+            // }
           }
         
           window.location.href = "/";
