@@ -8,14 +8,15 @@ let FoodMenu = (props) => {
     let [menuCardList,setMenuCardList] =useState(null)
     const [foods,setFoods]=useState(0);
 
+    const [total,setTotal]=useState(0);
 
-    const add=()=>{
-      setFoods(foods+1);
-    }
-    const remove=()=>{
-      if(foods>0){
-        setFoods(foods-1);
-      }
+    const [arr,setArr]=useState([]);
+
+
+    
+    
+    const totalCost=()=>{
+      alert(`total to be payed is ${total}` );
     }
 
 
@@ -38,6 +39,8 @@ let FoodMenu = (props) => {
         })
         .catch((error) => console.error(error));
     },[])
+
+    
     
     if (menuCardList === null){
         return (
@@ -48,14 +51,15 @@ let FoodMenu = (props) => {
           </div>
         );
     }else{
+      
          return (
            <div>
              {/* <h1 className="mx-4 text-2xl font-bold font-serif">Res Id is {resturantId }</h1> */}
              <div className="flex justify-between items-center">
               <h2 className="mx-4 text-2xl font-bold font-serif">Avalable Menu is:- </h2>
               <div className="flex items-center">
-                    <img className="h-16 w-16" src="https://static.vecteezy.com/system/resources/thumbnails/004/798/846/small/shopping-cart-logo-or-icon-design-vector.jpg" />
-                    <h1 className="mr-1">{foods}</h1>
+                    <img onClick={totalCost} className="h-16 w-16" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSinE0XGiL81FDDx1pv3E9ZHFtygIVyQcXRaXNDRjgmN01y8itvplO6kCkb6I3_i3BYDlU&usqp=CAU" />
+                    <h1 className="text-3xl font-extrabold mr-1">{foods}</h1>
               </div>
               
              </div>
@@ -67,11 +71,25 @@ let FoodMenu = (props) => {
                     <div >
                       <img src={IMAGE_URL+item?.card?.info?.imageId} alt="food" />
                       <p className="h-10 font-bold">{item?.card?.info?.name}</p>
-                      
+                     
                       <p><strong>{Number((item?.card?.info?.price) / 100)}</strong> Rupees</p>
+                      
                       <div>
-                                              <button className="bg-blue-600 font-bold px-1 rounded-md" onClick={add}>ORDER</button>
-                                              <button className="bg-blue-600 font-extrabold  mx-1 px-1 rounded-md " onClick={remove}>-</button>
+                          <button className="bg-blue-600 font-bold px-1 rounded-md" onClick={()=>{
+                            setFoods(foods+1);
+                            
+                            setTotal(total+Number((item?.card?.info?.price) / 100))
+                            // {console.log(total)}
+                          }}>ORDER</button>
+                          
+                          <button className="bg-blue-600 font-extrabold  mx-1 px-1 rounded-md " onClick={()=>{
+                            if(foods>0){
+                              setFoods(foods-1);
+                              setTotal(total-Number((item?.card?.info?.price) / 100))
+                            }
+                            
+                            // {console.log(total)}
+                          }}>-</button>
                       </div>
                     </div>
                     
