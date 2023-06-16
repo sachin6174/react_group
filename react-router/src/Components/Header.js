@@ -28,7 +28,7 @@ let Header = () => {
         </Link>
         
         <Link to="/">
-          <h1 className="hidden sm:block bg-gradient-to-l from-blue-500 to-orange-800 mt-1 text-2xl font-extrabold text-white font-serif rounded-md px-1">
+          <h1 className="hidden sm:block bg-gradient-to-l from-blue-500 to-orange-800 hover:from-orange-800 hover:to-blue-500 mt-1 text-2xl font-extrabold text-white font-serif rounded-md px-1">
             Chandan Foods
           </h1>
         </Link>
@@ -36,22 +36,22 @@ let Header = () => {
       <div className="flex gap-2">
         <div>
           <div className="flex justify-between">
-            <Link className="p-3" to="/about">
+            <Link className="p-3 hover:underline hover:underline-offset-4" to="/about">
               About
             </Link>
-            <Link className="p-3" to="/contact">
+            <Link className="p-3 hover:underline hover:underline-offset-4" to="/contact">
               Contact
             </Link>
-            <Link className="p-3" to="/support">
+            <Link className="p-3 hover:underline hover:underline-offset-4" to="/support">
               Support
             </Link>
           </div>
         </div>
       </div>
       <div className="flex gap-2 justify-center items-center">
-        {name && <span className="  m-1  text-white px-2">Hello {name}</span>}
-        {!name && <span className="  m-1  text-white px-2">Hello {name}</span>}
-        <button  className="bg-gray-400 m-1 rounded-xl px-2 text-red-800 font-extrabold mr-2">
+        {name && <span className="  m-1  text-white px-2 hover:underline hover:underline-offset-4">Hello {name}</span>}
+        {!name && <span className="  m-1  text-white px-2 hover:underline hover:underline-offset-4">Hello {name}</span>}
+        <button  className="bg-gray-400 hover:bg-slate-300 m-1 rounded-xl px-2 text-red-800 font-extrabold mr-2">
           <Link to="login">
           Login
           </Link>
